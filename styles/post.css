@@ -1,3 +1,19 @@
+.input-link {
+  width: 75%;
+  height: 75px;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.input-content {
+  width: 75%;
+  height: 150px;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto
+}
+
 .sub-form {
   text-align: center;
   background-color: #fffff4;
@@ -6,6 +22,9 @@
 
 .sub-button {
   font-family: calibri;
-  font-size: 24;
-  width: 345px
+  font-size: 48px;
+  width: 75%;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto
 }

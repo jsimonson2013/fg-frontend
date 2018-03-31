@@ -11,14 +11,10 @@
 <div id="banner">
   <h1 class="banner-header">Submit a New Post</h1>
 </div>
-<!--<form action="http://jacobsimonson.me:3000/submission/" method="post" class="sub-form">-->
 <div id="form" class="sub-form">
-	<textarea id="content" cols="40" rows="1" placeholder="Title goes here..."></textarea><br>
-	<textarea id="link" cols="40" rows="1" placeholder="Link goes here..."></textarea><br>
-	<textarea name="timestamp" :value="timestamp" style="display: none"></textarea>
-	<textarea name="user_id" :value="uid" style="display: none"></textarea>
+	<textarea id="content" class="input-link" cols="40" rows="1" placeholder="Title goes here..."></textarea><br><br><br>
+	<textarea id="link" class="input-link" cols="40" rows="1" placeholder="Link goes here..."></textarea><br><br><br>
 	<button class="sub-button" @click="comment">Post</button>
-	<!--<input type="submit" value="Post" class="sub-button">-->
 </div>
 </div>
 <script src="../scripts/cookie-parser.js"></script>

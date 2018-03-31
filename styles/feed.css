@@ -34,6 +34,14 @@
   text-align: left
 }
 
+.comment-content {
+  font-size: 24;
+  font-family: calibri;
+  color: #2b2b2b;
+  display: inline-block;
+  cursor: pointer;
+}
+
 .post-content {
   font-size: 42;
   font-family: calibri;

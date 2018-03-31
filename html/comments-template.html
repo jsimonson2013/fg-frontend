@@ -14,7 +14,7 @@
 </div>
 <div id="comment-list">
 <div v-for="comment in comments" v-if="comment.content" class="feed-post">
-  <h3 class="post-content">{{ body(comment.content) }}</h3>
+  <h3 class="comment-content">{{ body(comment.content) }}</h3>
   <p>Posted by {{ comment.author }} on {{ comment.create_date }}</p>
 </div>
 </div>

@@ -5,13 +5,11 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 </head>
 <body>
-<h1 width="90%">Enter Username and Password</h1>
+<h1 style="width: 90%; font-size: 64px; margin-left: auto;  margin-right: auto">Login</h1>
 <div id="form">
-    	Username<br>
-	<input id="user" type="text" placeholder="Enter Username..." v-model="user"><br>
-    	Password<br>
-    	<input id="pass" type="text" placeholder="Enter Password..." v-model="pass"><br>
-        <button @click="login">Submit</button><br>
+	<input id="user" type="text" style="width: 90%; height: 75px; font-size: 48px; margin-left: auto; margin-right: auto" placeholder="Enter Username..." v-model="user"><br><br><br>
+    	<input id="pass" type="text" style="width: 90%; height: 75px; font-size: 48px; margin-left: auto; margin-right: auto" placeholder="Enter Password..." v-model="pass"><br><br><br>
+        <button @click="login" style="width: 90%; height: 75px; font-size: 48px; margin-left: auto; margin-right: auto">Submit</button><br>
 </div>
 <a href="">Click here to request sign up.</a>
 </body>
