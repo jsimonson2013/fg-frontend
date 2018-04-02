@@ -11,7 +11,7 @@
 	<h2>Contact</h2>
 	<p v-if="user[0]">Email: {{ user[0].email }}<br>Phone: {{ user[0].phone }}</p>
 </div>
-<button>Change Password</button>
+<button @click="alertPassChange">Change Password</button>
 </div>
 <script src="../scripts/cookie-parser.js"></script>
 <script src="../scripts/profile.js"></script>

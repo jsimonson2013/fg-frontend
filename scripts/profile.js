@@ -1,5 +1,9 @@
 let user = []
 
+changePass = (newpass, user) => {
+  console.log(newpass, user)
+}
+
 window.onload = () => {
   fetch('http://jacobsimonson.me:3000/profile/?user_id='+getCookie('UID'), {method: 'GET'})
   .then( res => {return res.json()})
@@ -7,8 +11,15 @@ window.onload = () => {
 }
 
 const app = new Vue({
-  el: '#profile',
+  el: '#wrapper',
   data: {
     user
+  },
+  methods: {
+    alertPassChange: () => {
+      const fields = prompt('What would you like your new password to be?', '')
+
+      if (fields) changePass(fields, user[0].user_id)
+    }
   }
 })
