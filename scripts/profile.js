@@ -1,7 +1,12 @@
 let user = []
 
 changePass = (newpass, user) => {
-  console.log(newpass, user)
+  const payload = `newpass=${newpass}&user=${user}`
+
+  fetch('http://jacobsimonson.me:3000/pass/', {method: 'POST', body: payload})
+  .then(res => {
+    console.log(newpass, user)
+  })
 }
 
 window.onload = () => {
