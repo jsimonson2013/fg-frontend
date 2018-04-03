@@ -15,12 +15,19 @@ var app = new Vue({
       let url = 'http://jacobsimonson.me:3000/comments/'
 
       if (document.getElementById('link')) {
-        etc = 'link=' + document.getElementById('link').value + '&'
+        etc = document.getElementById('link').value
         url = 'http://jacobsimonson.me:3000/submission/'
       }
 
-      const payload = `content=${document.getElementById('content').value}&${etc}parent_id=${app.pid}&timestamp=${app.timestamp}&user_id=${app.uid}`
-      fetch(url, {method: 'POST', body: payload})
+      const payload = JSON.stringify({
+        'content': document.getElementById('content').value,
+        'link': etc,
+        'parent_id': app.pid || NULL,
+        'timestamp': app.timestamp,
+        'user_id': app.uid
+      })
+
+      fetch(url, {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
       .then(() => window.open('http://friendgroup.jacobsimonson.me/html/feed-template.html', '_self'))
     }
   }
