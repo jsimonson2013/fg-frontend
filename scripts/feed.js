@@ -16,10 +16,12 @@ const app = new Vue({
       window.open(loc)
     },
     voteOnPost: id => {
-      const payload = `post_id=${id}&user_id=${getCookie('UID')}`
+      const payload = JSON.stringify({
+        'post_id': id,
+        'user_id': getCookie('UID')
+      })
 
-      fetch('http://jacobsimonson.me:3000/vote/', {method: 'POST', body: payload})
-      .then(res => console.log(res))
+      fetch('http://jacobsimonson.me:3000/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
     }, 
     viewComments: id => {
       document.cookie = 'PID='+id+';path=/'

@@ -1,9 +1,12 @@
 let user = []
 
 changePass = (newpass, user) => {
-  const payload = `newpass=${newpass}&user=${user}`
+  const payload = JSON.stringify({
+    'newpass': newpass,
+    'user': user
+  })
 
-  fetch('http://jacobsimonson.me:3000/pass/', {method: 'POST', body: payload})
+  fetch('http://jacobsimonson.me:3000/pass/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
   .then(res => {
     console.log(newpass, user)
   })
