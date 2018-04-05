@@ -9,8 +9,10 @@
 <div  id="wrapper">
 <div id="banner">
   <h1 class="banner-header">Ex Roomies :'( Still Besties :)</h1>
-  <a href="../html/feed-template.html">Back</a>
-<a href="../html/submit-comment.html">New Comment</a>
+  <div id="banner-links">
+    <a href="../html/feed-template.html">Back</a>
+    <a href="../html/submit-comment.html">New Comment</a>
+  </div>
 </div>
 <div id="comment-list">
 <div v-for="comment in comments" v-if="comment.content" class="feed-post">
