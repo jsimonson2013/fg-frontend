@@ -14,6 +14,9 @@ const app = new Vue({
   methods: {
     openPost: loc => {
       window.open(loc)
+    }, 
+    formattedDate: date => {
+      return date.substring(0,10)
     },
     voteOnPost: id => {
       const payload = JSON.stringify({

@@ -22,7 +22,7 @@
   <h3 class="post-content" @click="openPost(post.link)">{{ body(post.content) }}</h3>
   </div>
   <div id="feed-lower">
-  <p class="post-stats">Posted by {{ post.author }} on {{ post.create_date }}</p>
+  <p class="post-stats">Posted by {{ post.author }} on {{ formattedDate(post.create_date) }}.</p>
   <a class="comment-button" @click="viewComments(post.post_id)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
   </div>
 </div>
