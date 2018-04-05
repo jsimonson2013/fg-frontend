@@ -22,7 +22,7 @@ var app = new Vue({
       const payload = JSON.stringify({
         'content': document.getElementById('content').value,
         'link': etc,
-        'parent_id': app.pid || NULL,
+        'parent_id': app.pid || '',
         'timestamp': app.timestamp,
         'user_id': app.uid
       })
