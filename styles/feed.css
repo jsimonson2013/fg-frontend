@@ -1,3 +1,7 @@
+html {
+  background-color: white
+}
+
 #wrapper {
   width: 90%;
   margin-left: auto;
@@ -7,8 +11,8 @@
 #banner {
   display: grid;
   grid-template-rows: 2fr 1fr;
-  background-color: #ffffd4;
-  border: 1px solid #5c5c3d;
+  background-color: #ace600;
+  border: 1px solid #2b2b2b;
   padding: 10px;
   margin: 0px 0px 10px 0px
 }
@@ -21,8 +25,8 @@
 }
 
 .banner-header {
-  font-size: 64px;
-  font-family: calibri;
+  font-size: 56px;
+  font-family: Helvetica;
   color: #2b2b2b;
   margin-top: 10px
 }
@@ -30,10 +34,10 @@
 .feed-post {
   display: grid;
   grid-template-columns: 2fr 1 fr;
-  background-color: #fffff4;
-  border: 1px outset #5c5c3d;
+  background-color: #f3fce9;
+  border: 1px outset lightgray;
   padding: 5px;
-  margin: 1px
+  margin: 5px 1px 1px 1px;
 }
 
 #feed-upper {
@@ -56,21 +60,21 @@
 
 .comment-content {
   font-size: 24px;
-  font-family: calibri;
+  font-family: Helvetica;
   color: #2b2b2b;
   display: inline-block;
 }
 
 .post-content {
-  font-size: 42px;
-  font-family: calibri;
+  font-size: 38px;
+  font-family: Times;
   color: #2b2b2b;
   cursor: pointer;
 }
 
 .post-stats {
-  font-size: 24px;
-  font-family: calibri;
+  font-size: 18px;
+  font-family: Helvetica;
   color: #2b2b2b;
   width: 90%
 }
