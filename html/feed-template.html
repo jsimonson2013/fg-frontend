@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="../styles/feed.css">
 <head>
 <body>
-<div id="wrapper">
 <div id="banner">
   <h1 class="banner-header">Ex Roomies :'( Still Besties :)</h1>
   <div id="banner-links">
@@ -15,6 +14,7 @@
   <a href="../html/submit-post.html">New Post</a>
   </div>
 </div>
+<div id="wrapper">
 <div id="feed-list" style="height=70%">
 <div v-for="post in posts" v-if="post.content && !post.parent_id" class="feed-post">
   <div id="feed-upper">

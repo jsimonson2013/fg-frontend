@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="../styles/feed.css">
 <head>
 <body>
-<div  id="wrapper">
 <div id="banner">
   <h1 class="banner-header">Ex Roomies :'( Still Besties :)</h1>
   <div id="banner-links">
@@ -15,6 +14,7 @@
     <a href="../html/submit-comment.html">New Comment</a>
   </div>
 </div>
+<div  id="wrapper">
 <div id="comment-list">
 <div v-for="comment in comments" v-if="comment.content" class="feed-post">
   <h3 class="comment-content">{{ body(comment.content) }}</h3>

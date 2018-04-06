@@ -19,7 +19,7 @@ window.onload = () => {
 }
 
 const app = new Vue({
-  el: '#wrapper',
+  el: '#outside',
   data: {
     user
   },
