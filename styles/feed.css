@@ -11,7 +11,7 @@ html {
 #banner {
   display: grid;
   grid-template-rows: 2fr 1fr;
-  background-color: #ace600;
+  background-color: #bace7e;
   border: 1px solid #2b2b2b;
   padding: 10px;
   margin: 0px 0px 10px 0px
@@ -34,7 +34,7 @@ html {
 .feed-post {
   display: grid;
   grid-template-columns: 2fr 1 fr;
-  background-color: #f3fce9;
+  background-color: #f5f8ed;
   border: 1px outset lightgray;
   padding: 5px;
   margin: 5px 1px 1px 1px;
