@@ -8,7 +8,7 @@
 <body>
 <div id="outside">
 <div id="banner">
-  <h1 v-if="user[0]">Welcome to {{ user[0].firstname }} {{ user[0].lastname }}'s profile!</h1>
+  <h1 class="banner-header" v-if="user[0]">{{ user[0].firstname }} {{ user[0].lastname }}'s profile!</h1>
   <div id="banner-links">
   <a href="../html/feed-template.html">Home</a>
   <a href="../html/submit-post.html">New Post</a>
