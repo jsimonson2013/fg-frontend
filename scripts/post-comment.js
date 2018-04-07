@@ -16,7 +16,7 @@ var app = new Vue({
 
       if (document.getElementById('link')) {
         etc = document.getElementById('link').value
-        if (etc.substring(0,3) != 'http') etc = 'http://' + etc
+        if (etc.substring(0,4) != 'http') etc = 'http://' + etc
         url = 'http://jacobsimonson.me:3000/submission/'
       }
 
