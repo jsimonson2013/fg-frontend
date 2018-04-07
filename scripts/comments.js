@@ -14,6 +14,9 @@ const app = new Vue({
   methods: {
     body: content => {
       return decodeURIComponent(content)
+    },
+    formattedDate: date => {
+      return date.substring(0, 10)
     }
   }
 })

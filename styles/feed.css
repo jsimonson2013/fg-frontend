@@ -34,7 +34,7 @@ html {
   display: grid;
   grid-template-columns: 2fr 1 fr;
   background-color: #f5f8ed;
-  border: 1px outset lightgray;
+  border-bottom: 1px solid lightgray;
   padding: 5px;
   margin: 5px 1px 1px 1px;
 }
