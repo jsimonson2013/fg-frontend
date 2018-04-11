@@ -75,11 +75,17 @@ body {
   width: 90%
 }
 
-.post-content {
+.post-link {
   font-size: 38px;
   font-family: serif;
   color: #2b2b2b;
   cursor: pointer;
+}
+
+.post-text {
+  font-size: 34px;
+  font-family: Helvetica;
+  color: #2b2b2b;
 }
 
 .post-stats {

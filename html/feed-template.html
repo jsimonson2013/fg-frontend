@@ -19,7 +19,7 @@
 <div v-for="post in posts" v-if="post.content && !post.parent_id" class="feed-post">
   <div id="feed-upper">
   <a class="vote-button" @click="voteOnPost(post.post_id)"><img src="../imgs/voteicon.png" style="width: 25px; height: 25px"></a>
-  <h3 class="post-content" @click="openPost(post.link)">{{ body(post.content) }}</h3>
+  <h3 v-bind:class="{ 'post-link': isLink(post.link.length), 'post-text': !isLink(post.link.length) }" @click="openPost(post.link)">{{ body(post.content) }}</h3>
   </div>
   <div id="feed-lower">
   <p class="post-stats">Posted by {{ post.author }} on {{ formattedDate(post.create_date) }}.</p>

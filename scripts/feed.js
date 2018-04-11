@@ -12,7 +12,12 @@ const app = new Vue({
     posts
   },
   methods: {
+    isLink: len => {
+      if (len > 1) return true
+      else return false
+    },
     openPost: loc => {
+      if (loc.length < 1) return
       window.open(loc)
     }, 
     formattedDate: date => {

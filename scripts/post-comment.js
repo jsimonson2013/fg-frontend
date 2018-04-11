@@ -15,9 +15,14 @@ var app = new Vue({
       let url = 'http://jacobsimonson.me:3000/comments/'
       let retaddr = 'http://friendgroup.jacobsimonson.me/html/feed-template.html'
 
+      if (document.getElementById('content').value.length < 1) {
+        alert('Text cannot be left empty.')
+	return
+      }
+
       if (document.getElementById('link')) {
         etc = document.getElementById('link').value
-        if (etc.substring(0,4) != 'http') etc = 'http://' + etc
+        if (etc.substring(0,4) != 'http' && etc.length > 1) etc = 'http://' + etc
         url = 'http://jacobsimonson.me:3000/submission/'
       }
 
