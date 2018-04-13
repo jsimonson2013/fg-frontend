@@ -23,8 +23,8 @@
   </div>
   <div id="feed-lower">
   <p class="post-stats">Posted by {{ post.author }} on {{ formattedDate(post.create_date) }}.</p>
-  <h5 v-if="ready">{{ numComments(post.post_id) }}</h5>
   <a class="comment-button" @click="viewComments(post.post_id)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
+  <h5 v-if="ready" style="text-align: center; font-family: Helvetica; font-size: 16">{{ numComments(post.post_id) }}</h5>
   </div>
 </div>
 </div>
