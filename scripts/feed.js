@@ -27,7 +27,7 @@ window.onload = () => {
     populateComments(copy)
   })
 
-  setTimeout(() => {app.ready = true}, 3000)
+  setTimeout(() => {app.ready = true}, 1500)
 }
 
 const app = new Vue({
