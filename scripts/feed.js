@@ -1,15 +1,40 @@
 let posts = []
+let comments = []
+
+const populateComments = local => {
+  for (post of local) {
+    const id = post.post_id
+    fetch('http://jacobsimonson.me:3000/comments/?parent_id='+id, {method: 'GET'})
+    .then(res => {return res.json()})
+    .then(json => {
+      const comms = {
+         pid: id,
+         num: json.length
+      }
+      comments.push(comms)
+    })
+  }
+}
 
 window.onload = () => {
   fetch('http://jacobsimonson.me:3000/feed', {method: 'GET'})
   .then( res => {return res.json()})
-  .then( res => {for(post of res) posts.push(post)})
+  .then( res => {
+    for(post of res) {
+      posts.push(post)
+    }
+    const copy = posts
+    populateComments(copy)
+  })
+
+  setTimeout(() => {app.ready = true}, 3000)
 }
 
 const app = new Vue({
   el: '#feed-list',
   data: {
-    posts
+    posts,
+    ready: false
   },
   methods: {
     isLink: len => {
@@ -20,6 +45,12 @@ const app = new Vue({
       if (loc.length < 1) return
       window.open(loc)
     }, 
+    numComments: post => {
+      for (comment of comments) {
+        if (comment.pid == post) return comment.num
+      }
+      return 0
+    },
     formattedDate: date => {
       return date.substring(0,10)
     },
