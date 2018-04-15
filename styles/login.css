@@ -1,10 +1,19 @@
 html {
-	background-color: white
+	background: url("../imgs/background.png") no-repeat;
+	background-size: cover
+}
+
+body {
+	margin: 0;
 }
 
 #header {
 	font-family: Helvetica;
-	font-size: 58px	
+	font-size: 58px;
+	font-color: #2b2b2b;
+	padding: 10px;
+	top: 0;
+	background-color: #f5f8ed;
 }
 
 #wrapper {

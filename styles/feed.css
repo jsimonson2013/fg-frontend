@@ -15,7 +15,6 @@ body {
 #banner {
   display: grid;
   grid-template-rows: 2fr 1fr;
-  width: 100%;
   background-color: #bace7e;
   padding: 10px;
 }
