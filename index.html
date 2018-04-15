@@ -1,15 +1,28 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>Login</title>
+<title>Welcome to FriendGroup!</title>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<link rel="stylesheet" type="text/css" href="styles/login.css">
 </head>
 <body>
-<h1 style="width: 90%; font-size: 64px; margin-left: auto;  margin-right: auto">Login</h1>
+<h1 id="header">Welcome to FriendGroup!</h1>
+<div id="wrapper">
+<div>
+</div>
 <div id="form">
-	<input id="user" type="text" style="width: 90%; height: 75px; font-size: 48px; margin-left: auto; margin-right: auto" placeholder="Enter Username..." v-model="user"><br><br><br>
-    	<input id="pass" type="text" style="width: 90%; height: 75px; font-size: 48px; margin-left: auto; margin-right: auto" placeholder="Enter Password..." v-model="pass"><br><br><br>
-        <button @click="login" style="width: 90%; height: 75px; font-size: 48px; margin-left: auto; margin-right: auto">Submit</button><br>
+	<div>
+	</div>
+	<div id="content">
+	<input id="user" type="text" placeholder="Enter Username..." v-model="user">
+    	<input id="pass" type="text" placeholder="Enter Password..." v-model="pass">
+        <button id="submit" @click="login" >Login</button><br>
+	</div>
+	<div>
+	</div>
+</div>
+<div>
+</div>
 </div>
 <a href="">Click here to request sign up.</a>
 </body>
