@@ -2,7 +2,7 @@ window.onload = () => {
 	if (getCookie('UID')) {
 		fetch('http://jacobsimonson.me:3000/bypass/?user=' + getCookie('UID'), {method: 'GET'})
 		.then(res => {return res.json()})
-		.then(res => {window.open(res.url, '__self')})
+		.then(res => {window.open(res.url, '_self')})
 	}
 }
 
