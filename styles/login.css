@@ -1,6 +1,8 @@
 html {
-	background: url("../imgs/background.png") no-repeat;
-	background-size: cover
+	background-repeat: no-repeat;
+	background-image: url("../imgs/background.png");
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 body {
