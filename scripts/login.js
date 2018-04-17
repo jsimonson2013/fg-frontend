@@ -18,7 +18,7 @@ const app = new Vue({
 			fetch('http://jacobsimonson.me:3000/login/'+payload, {method: 'GET'})
       .then(res => {return res.json()})
 			.then(res => {
-				document.cookie = 'UID='+res.uid+';path=/'
+				document.cookie = 'UID='+res.uid+';path=/;max-age=31536000'
 				window.open(res.url, '_self')
       })
 		}
