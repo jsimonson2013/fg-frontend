@@ -1,3 +1,7 @@
+window.onload = () => {
+  testLogin()
+}
+
 var app = new Vue({
   el: '#form',
   data: {

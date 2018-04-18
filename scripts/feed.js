@@ -17,6 +17,8 @@ const populateComments = local => {
 }
 
 window.onload = () => {
+  testLogin()
+
   fetch('http://jacobsimonson.me:3000/feed', {method: 'GET'})
   .then( res => {return res.json()})
   .then( res => {
