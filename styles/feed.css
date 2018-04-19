@@ -48,14 +48,14 @@ body {
   margin: 5px 1px 1px 1px;
 }
 
-#feed-upper {
+.feed-upper {
   display: grid;
   grid-template-columns: 1fr 9fr;
   grid-auto-rows: minmax(100px, auto);
   margin: 0px 10px 0px 10px;
 }
 
-#feed-lower {
+.feed-lower {
   display: grid;
   grid-template-columns: 8fr 1fr 1fr;
   margin: 0px 10px 0px 10px;

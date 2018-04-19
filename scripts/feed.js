@@ -64,6 +64,12 @@ const app = new Vue({
 
       fetch('http://jacobsimonson.me:3000/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
     }, 
+    darkimg: elem => {
+      elem.target.setAttribute('src', '../imgs/votedown.png')
+    },
+    lightimg: elem => {
+      elem.target.setAttribute('src', '../imgs/voteicon.png')
+    },
     viewComments: id => {
       document.cookie = 'PID='+id+';path=/'
     },
