@@ -11,9 +11,8 @@ const populateComments = local => {
          pid: id,
          num: json.length
       }
-      app.comments.push(comms)
+      comments.push(comms)
     })
-    app.ready = true
   }
 }
 
@@ -29,6 +28,8 @@ window.onload = () => {
     const copy = posts
     populateComments(copy)
   })
+  
+  setTimeout(() => {app.ready = true}, 1500)
 }
 
 const app = new Vue({
