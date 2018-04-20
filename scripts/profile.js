@@ -16,9 +16,11 @@ changePass = (newpass, user) => {
 getScore = (first, last) => {
   fetch('http://jacobsimonson.me:3000/score/?first='+first+'&last='+last, {method: 'GET'})
   .then( res => {return res.json()})
-  .then( res => {app.score = res.score})
+  .then( res => {
+    app.score = res.score
 
-  setTimeout(() => {app.ready = true}, 1500)
+    app.ready = true
+  })
 }
 
 window.onload = () => {
