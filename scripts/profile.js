@@ -1,4 +1,5 @@
 let user = []
+let score = 0
 
 changePass = (newpass, user) => {
   const payload = JSON.stringify({
@@ -12,18 +13,28 @@ changePass = (newpass, user) => {
   })
 }
 
+getScore = (first, last) => {
+  fetch('http://jacobsimonson.me:3000/score/?first='+first+'&last='+last, {method: 'GET'})
+  .then( res => {return res.json()})
+  .then( res => {score = res.json()})
+}
+
 window.onload = () => {
   testLogin()
 
   fetch('http://jacobsimonson.me:3000/profile/?user_id='+getCookie('UID'), {method: 'GET'})
   .then( res => {return res.json()})
-  .then( res => {for (item of res) user.push(item)})
+  .then( res => {
+    for (item of res) user.push(item)
+    getScore(user.firstname, user.lastname)
+  })
 }
 
 const app = new Vue({
   el: '#wrapper',
   data: {
-    user
+    user,
+    score
   },
   methods: {
     alertPassChange: () => {
