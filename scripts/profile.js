@@ -16,7 +16,9 @@ changePass = (newpass, user) => {
 getScore = (first, last) => {
   fetch('http://jacobsimonson.me:3000/score/?first='+first+'&last='+last, {method: 'GET'})
   .then( res => {return res.json()})
-  .then( res => {score = res.json()})
+  .then( res => {app.score = res.score})
+
+  setTimeout(() => {app.ready = true}, 1500)
 }
 
 window.onload = () => {
@@ -26,7 +28,7 @@ window.onload = () => {
   .then( res => {return res.json()})
   .then( res => {
     for (item of res) user.push(item)
-    getScore(user.firstname, user.lastname)
+    getScore(user[0].firstname, user[0].lastname)
   })
 }
 
@@ -34,7 +36,8 @@ const app = new Vue({
   el: '#wrapper',
   data: {
     user,
-    score
+    score,
+    ready: false
   },
   methods: {
     alertPassChange: () => {
