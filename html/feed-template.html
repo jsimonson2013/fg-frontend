@@ -25,13 +25,13 @@
   <div class="feed-lower">
   <p class="post-stats">Posted by {{ post.author }} on {{ formattedDate(post.create_date) }}.</p>
   <a class="comment-button" @click="viewComments(post.post_id)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
-  <h5 v-if="ready" style="text-align: center; font-family: Helvetica; font-size: 16">{{ numComments(post.post_id) }}</h5>
+  <h5 v-if="ready" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.post_id) }}</h5>
   </div>
 </div>
 </div>
 </div>
-<script src="../scripts/feed.js"></script>
-<script src="../scripts/test-login.js"></script>
-<script src="../scripts/cookie-parser.js"></script>
+<script type="text/javascript" src="../scripts/feed.js"></script>
+<script type="text/javascript" src="../scripts/test-login.js"></script>
+<script type="text/javascript" src="../scripts/cookie-parser.js"></script>
 </body>
 </html>

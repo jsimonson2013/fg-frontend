@@ -17,7 +17,11 @@
 <div id="wrapper">
 <div id="profile" style="background-color: #f5f8ed">
 	<h2 v-if="user[0]" style="padding: 10px; font-family: Helvetica">{{ user[0].firstname }} {{ user[0].lastname }}</h1>
-	<p v-if="ready" style="padding: 10px; font-family: serif">Score: {{ score }}</p>
+	<p v-if="ready" style="padding: 10px; font-family: serif; font-size: 20px">Score: {{ score }}</p>
+	<p style="padding: 10px; font-family: serif; font-size: 20px">Groups:</p>
+	<ul>
+		<li style="padding-bottom: 10px"><a href="http://friendgroup.jacobsimonson.me/html/feed-template.html">Ex Roomies :'( Still Besties :)</a></li>
+	</ul>
 </div><button @click="alertPassChange">Change Password</button>
 </div>
 <script src="../scripts/cookie-parser.js"></script>
