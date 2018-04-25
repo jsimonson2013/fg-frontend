@@ -45,7 +45,10 @@ const app = new Vue({
     alertPassChange: () => {
       const fields = prompt('What would you like your new password to be?', '')
 
-      if (fields) changePass(fields, user[0].user_id)
+      if (fields) {
+        if(confirm("Are you sure you would like to change you password?"))
+	  changePass(fields, user[0].user_id)
+      }
     }
   }
 })
