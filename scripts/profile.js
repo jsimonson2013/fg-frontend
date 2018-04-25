@@ -7,14 +7,14 @@ changePass = (newpass, user) => {
     'user': user
   })
 
-  fetch('http://jacobsimonson.me:3000/pass/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
+  fetch('https://fgapi.jacobsimonson.me/pass/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
   .then(res => {
     console.log(newpass, user)
   })
 }
 
 getScore = (first, last) => {
-  fetch('http://jacobsimonson.me:3000/score/?first='+first+'&last='+last, {method: 'GET'})
+  fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
   .then( res => {return res.json()})
   .then( res => {
     app.score = res.score
@@ -26,7 +26,7 @@ getScore = (first, last) => {
 window.onload = () => {
   testLogin()
 
-  fetch('http://jacobsimonson.me:3000/profile/?user_id='+getCookie('UID'), {method: 'GET'})
+  fetch('https://fgapi.jacobsimonson.me/profile/?user_id='+getCookie('UID'), {method: 'GET'})
   .then( res => {return res.json()})
   .then( res => {
     for (item of res) user.push(item)

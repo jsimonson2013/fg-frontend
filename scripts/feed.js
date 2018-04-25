@@ -4,7 +4,7 @@ let comments = []
 const populateComments = local => {
   for (post of local) {
     const id = post.post_id
-    fetch('http://jacobsimonson.me:3000/comments/?parent_id='+id, {method: 'GET'})
+    fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+id, {method: 'GET'})
     .then(res => {return res.json()})
     .then(json => {
       const comms = {
@@ -19,7 +19,7 @@ const populateComments = local => {
 window.onload = () => {
   testLogin()
 
-  fetch('http://jacobsimonson.me:3000/feed', {method: 'GET'})
+  fetch('https://fgapi.jacobsimonson.me/feed', {method: 'GET'})
   .then( res => {return res.json()})
   .then( res => {
     for(post of res) {
@@ -62,7 +62,7 @@ const app = new Vue({
         'user_id': getCookie('UID')
       })
 
-      fetch('http://jacobsimonson.me:3000/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
+      fetch('https://fgapi.jacobsimonson.me/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
     }, 
     darkimg: elem => {
       elem.target.setAttribute('src', '../imgs/votedown.png')

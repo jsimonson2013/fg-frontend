@@ -16,8 +16,8 @@ var app = new Vue({
   methods: {
     comment: () => {
       let etc = ''
-      let url = 'http://jacobsimonson.me:3000/comments/'
-      let retaddr = 'http://friendgroup.jacobsimonson.me/html/feed-template.html'
+      let url = 'https://fgapi.jacobsimonson.me/comments/'
+      let retaddr = 'https://friendgroup.jacobsimonson.me/html/feed-template.html'
 
       if (document.getElementById('content').value.length < 1) {
         alert('Text cannot be left empty.')
@@ -27,11 +27,11 @@ var app = new Vue({
       if (document.getElementById('link')) {
         etc = document.getElementById('link').value
         if (etc.substring(0,4) != 'http' && etc.length > 1) etc = 'http://' + etc
-        url = 'http://jacobsimonson.me:3000/submission/'
+        url = 'https://fgapi.jacobsimonson.me/submission/'
       }
 
       if (document.getElementById('comment-button')) {
-        retaddr = 'http://friendgroup.jacobsimonson.me/html/comments-template.html'
+        retaddr = 'https://friendgroup.jacobsimonson.me/html/comments-template.html'
       }
 
       const payload = JSON.stringify({
