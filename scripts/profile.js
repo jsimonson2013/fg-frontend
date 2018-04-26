@@ -49,6 +49,10 @@ const app = new Vue({
         if(confirm("Are you sure you would like to change you password?"))
 	  changePass(fields, user[0].user_id)
       }
+    },
+    signOut: () => {
+      document.cookie = 'UID=;path=/;Max-Age=-99999999;'
+      window.open('https://friendgroup.jacobsimonson.me', '_self')
     }
   }
 })
