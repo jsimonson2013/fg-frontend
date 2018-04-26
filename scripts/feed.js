@@ -1,10 +1,11 @@
 let posts = []
 let comments = []
+let promises = []
 
 const populateComments = local => {
   for (post of local) {
     const id = post.post_id
-    fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+id, {method: 'GET'})
+    const promise = fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+id, {method: 'GET'})
     .then(res => {return res.json()})
     .then(json => {
       const comms = {
@@ -13,7 +14,9 @@ const populateComments = local => {
       }
       comments.push(comms)
     })
+    promises.push(promise)
   }
+  Promise.all(promises).then(() => {app.ready = true})
 }
 
 window.onload = () => {
@@ -28,8 +31,6 @@ window.onload = () => {
     const copy = posts
     populateComments(copy)
   })
-  
-  setTimeout(() => {app.ready = true}, 1500)
 }
 
 const app = new Vue({
