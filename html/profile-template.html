@@ -1,14 +1,16 @@
-<html`>
+<html style="margin:0">
 <head>
 <meta charset="utf-8"/>
 <title>Profile</title>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <link rel="stylesheet" type="text/css" href="../styles/feed.css">
+<link rel="stylesheet" type="text/css" href="../styles/profile.css">
 <link rel="shortcut icon" href="../imgs/favico.png"
 </head>
 <body>
+<div id="wide">
 <div id="banner">
-  <h1 class="banner-header">My Profile</h1>
+  <h1 class="banner-header" v-if="user[0]">{{ user[0].firstname }} {{ user[0].lastname }}</h1>
   <div id="banner-links">
   <a class="banner-link" href="../html/feed-template.html">Home</a>
   <a class="banner-link" href="../html/submit-post.html">New Post</a>
@@ -16,15 +18,16 @@
 </div>
 <div id="wrapper">
 <div id="profile" style="background-color: #f5f8ed">
-	<h2 v-if="user[0]" style="padding: 10px; font-family: Helvetica">{{ user[0].firstname }} {{ user[0].lastname }}</h1>
-	<p v-if="ready" style="padding: 10px; font-family: serif; font-size: 20px">Score: {{ score }}</p>
-	<p style="padding: 10px; font-family: serif; font-size: 20px">Groups:</p>
+	<!--<h2 v-if="user[0]" style="padding: 10px; font-family: Helvetica">{{ user[0].firstname }} {{ user[0].lastname }}</h1>-->
+	<h3 v-if="ready" style="padding: 10px; font-family: Helvetica; font-size: 38px; font-color: #2b2b2b">Score: {{ score }}</h3>
+	<h3 style="padding: 10px; font-family: Helvetica; font-size: 38px; font-color: #2b2b2b">Groups:</h3>
 	<ul>
-		<li style="padding-bottom: 10px"><a href="https://friendgroup.jacobsimonson.me/html/feed-template.html">Ex Roomies :'( Still Besties :)</a></li>
+		<li style="padding-bottom: 10px; font-family: serif; font-size: 24px"><a href="https://friendgroup.jacobsimonson.me/html/feed-template.html">Ex Roomies :'( Still Besties :)</a></li>
 	</ul>
 </div id="profile-buttons">
-	<button @click="alertPassChange">Change Password</button>
-	<button @click="signOut">Sign Out</button>
+	<button class="prof-button" @click="alertPassChange">Change Password</button>
+	<button class="prof-button" @click="signOut">Sign Out</button>
+</div>
 </div>
 <script src="../scripts/cookie-parser.js"></script>
 <script src="../scripts/test-login.js"></script>

@@ -35,7 +35,7 @@ window.onload = () => {
 }
 
 const app = new Vue({
-  el: '#wrapper',
+  el: '#wide',
   data: {
     user,
     score,
