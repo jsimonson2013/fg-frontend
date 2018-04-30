@@ -1,8 +1,11 @@
 .prof-button {
-  font-size: 36px;
+  font-size: 28px;
   padding: 10px;
-  background-color: #bace7e;
   cursor: pointer;
-  font-family: serif;
+  font-family: Helvetica;
   font-color: #2b2b2b
+}
+
+#group-link {
+  font-size: 24px;
 }
