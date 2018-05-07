@@ -5,7 +5,6 @@ window.onload = () => {
 		.then(res => {window.open(res.url, '_self')})
 	}
 }
-
 const app = new Vue({
 	el: "#form",
 	data: {

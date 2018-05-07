@@ -2,6 +2,13 @@
 <head>
 <meta charset="utf-8"/>
 <title>Welcome to FriendGroup!</title>
+<script>
+	if (getCookie('UID')) {
+		fetch('https://fgapi.jacobsimonson.me/bypass/?user=' + getCookie('UID'), {method: 'GET'})
+		.then(res => {return res.json()})
+		.then(res => {window.open(res.url, '_self')})
+	}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script src="scripts/cookie-parser.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/login.css">
