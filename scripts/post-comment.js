@@ -43,7 +43,10 @@ var app = new Vue({
       })
 
       fetch(url, {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
-      .then(() => window.open(retaddr, '_self'))
+      .then(() => {
+        fetch('https://fgapi.jacobsimonson.me/increment-score/?uid='+app.uid, {method: 'GET'})
+        .then(() => {window.open(retaddr, '_self')})
+      })
     }
   }
 })
