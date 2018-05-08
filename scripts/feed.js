@@ -32,6 +32,8 @@ const populateComments = local => {
     })
     promises.push(scorePromise)
 
+    // update scores while we're at it
+    fetch('https://fgapi.jacobsimonson.me/update-score/?first='+first+'&last='+last, {method: 'GET'})
   }
   Promise.all(promises).then(() => {app.ready = true})
 }
