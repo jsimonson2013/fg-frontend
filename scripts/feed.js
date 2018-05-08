@@ -1,11 +1,13 @@
 let posts = []
 let comments = []
 let promises = []
+let scores = []
 
 const populateComments = local => {
   for (post of local) {
     const id = post.post_id
-    const promise = fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+id, {method: 'GET'})
+
+    const commentsPromise = fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+id, {method: 'GET'})
     .then(res => {return res.json()})
     .then(json => {
       const comms = {
@@ -14,7 +16,22 @@ const populateComments = local => {
       }
       comments.push(comms)
     })
-    promises.push(promise)
+    promises.push(commentsPromise)
+
+    const first = post.author.split(' ')[0]
+    const last = post.author.split(' ')[1]
+
+    const scorePromise = fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
+    .then(res => {return res.json()})
+    .then(json => {
+      const scr = {
+        author: `${first} ${last}`,
+        score: json.score
+      }
+      scores.push(scr)
+    })
+    promises.push(scorePromise)
+
   }
   Promise.all(promises).then(() => {app.ready = true})
 }
@@ -56,6 +73,12 @@ const app = new Vue({
     },
     formattedDate: date => {
       return date.substring(0,10)
+    },
+    getScore: author => {
+      for (score of scores) {
+        if (score.author == author) return score.score
+      }
+      return 0
     },
     voteOnPost: id => {
       const payload = JSON.stringify({

@@ -69,6 +69,21 @@ body {
   margin-bottom: auto
 }
 
+.tooltip {
+	visibility: hidden;
+	width: 100px;
+	background-color: black;
+	color: white;
+	text-align: center;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+}
+
+.author:hover .tooltip{
+	visibility: visible;
+}
+
 .comment-content {
   font-size: 34px;
   font-family: Helvetica;

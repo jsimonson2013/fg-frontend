@@ -17,14 +17,14 @@
   </div>
 </div>
 <div id="wrapper">
-<div id="feed-list" style="height=70%">
+<div id="feed-list" style="height: 70%">
 <div v-for="post in posts" v-if="post.content && !post.parent_id" class="feed-post">
   <div class="feed-upper">
   <a class="vote-button" @click="voteOnPost(post.post_id)" @mousedown="darkimg($event)" @mouseup="lightimg($event)"><img src="../imgs/voteicon.png" style="width: 25px; height: 25px"></a>
   <h3 v-bind:class="{ 'post-link': isLink(post.link.length), 'post-text': !isLink(post.link.length) }" @click="openPost(post.link)">{{ body(post.content) }}</h3>
   </div>
   <div class="feed-lower">
-  <p class="post-stats">Posted by {{ post.author }} on {{ formattedDate(post.create_date) }}.</p>
+  <p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.create_date) }}.</p>
   <a class="comment-button" @click="viewComments(post.post_id)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
   <h5 v-if="ready" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.post_id) }}</h5>
   </div>
