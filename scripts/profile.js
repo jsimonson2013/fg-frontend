@@ -1,4 +1,5 @@
 let user = []
+let groups = []
 let score = 0
 
 changePass = (newpass, user) => {
@@ -32,6 +33,12 @@ window.onload = () => {
     for (item of res) user.push(item)
     getScore(user[0].firstname, user[0].lastname)
   })
+
+  fetch('https://fgapi.jacobsimonson.me/groups/?user_id='+getCookie('UID'), {method: 'GET'})
+  .then( res => {return res.json()})
+  .then( res => {
+    for (item of res) groups.push(item.name)
+  })
 }
 
 const app = new Vue({
@@ -39,6 +46,7 @@ const app = new Vue({
   data: {
     user,
     score,
+    groups,
     ready: false
   },
   methods: {
