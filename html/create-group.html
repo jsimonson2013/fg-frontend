@@ -1,27 +1,29 @@
-<html style="margin:0">
+<html>
+<meta charset="utf-8">
 <head>
-<meta charset="utf-8"/>
-<title>Group</title>
+<title>New Post</title>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <link rel="stylesheet" type="text/css" href="../styles/feed.css">
+<link rel="stylesheet" type="text/css" href="../styles/post.css">
 <link rel="shortcut icon" href="../imgs/favico.png"
 </head>
 <body>
-<div id="wide">
 <div id="banner">
-  <h1 class="banner-header">Your Groups</h1>
+  <h1 class="banner-header">Submit a New Post</h1>
   <div id="banner-links">
   <a class="banner-link" href="../html/feed-template.html">Home</a>
   <a class="banner-link" href="../html/profile-template.html">My Profile</a>
-  <a class="banner-link" href="../html/create-group.html">New Group</a>
   </div>
 </div>
 <div id="wrapper">
+<div id="form" class="sub-form">
+	<textarea id="content" class="input-text" cols="40" rows="3" placeholder="Text goes here..."></textarea><br><br><br>
+	<textarea id="link" class="input-link" cols="40" rows="1" placeholder="Link goes here..."></textarea><br><br><br>
+	<button class="sub-button">Post</button>
 </div>
 </div>
 <script src="../scripts/cookie-parser.js"></script>
 <script src="../scripts/test-login.js"></script>
-<script src="../scripts/groups.js"></script>
+<script src="../scripts/new-group.js"></script>
 </body>
 </html>
-
