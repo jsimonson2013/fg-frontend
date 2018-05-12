@@ -38,7 +38,7 @@ const populateComments = local => {
 window.onload = () => {
 	testLogin()
 
-	fetch('https://fgapi.jacobsimonson.me/feed', {method: 'GET'})
+	fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID'), {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		for(post of res) {
