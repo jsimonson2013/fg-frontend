@@ -5,56 +5,56 @@ let scores = []
 const ready = false
 
 const populateComments = local => {
-  for (post of local) {
-    const first = post.author.split(' ')[0]
-    const last = post.author.split(' ')[1]
+	for (post of local) {
+		const first = post.author.split(' ')[0]
+		const last = post.author.split(' ')[1]
 
-    const scorePromise = fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
-    .then(res => {return res.json()})
-    .then(json => {
-      const scr = {
-        author: `${first} ${last}`,
-        score: json.score
-      }
-      scores.push(scr)
-    })
-    promises.push(scorePromise)
-
-  }
-  Promise.all(promises).then(() => {app.ready = true})
+		const scorePromise = fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
+		.then(res => {return res.json()})
+		.then(json => {
+			const scr = {
+				author: `${first} ${last}`,
+				score: json.score
+			}
+			scores.push(scr)
+		})
+		promises.push(scorePromise)
+	}
+	Promise.all(promises).then(() => {app.ready = true})
 }
-window.onload = () => {
-  testLogin()
 
-  fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+getCookie('PID'), {method: 'GET'})
-  .then( res => {return res.json()})
-  .then( res => {
-    for(comment of res) {
-      comments.push(comment)
-    }
-    const copy = comments
-    populateComments(copy)
-  })
+window.onload = () => {
+	testLogin()
+
+	fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+getCookie('PID'), {method: 'GET'})
+	.then( res => {return res.json()})
+	.then( res => {
+		for(comment of res) {
+			comments.push(comment)
+		}
+		const copy = comments
+		populateComments(copy)
+	})
 }
 
 const app = new Vue({
-  el: '#comment-list',
-  data: {
-    ready,
-    comments
-  },
-  methods: {
-    body: content => {
-      return decodeURIComponent(content)
-    },
-    formattedDate: date => {
-      return date.substring(0, 10)
-    },
-    getScore: author => {
-      for (score of scores) {
-        if (score.author == author) return score.score
-      }
-      return 0
-    }
-  }
+	el: '#comment-list',
+	data: {
+		ready,
+		comments
+	},
+	methods: {
+		body: content => {
+			return decodeURIComponent(content)
+		},
+		formattedDate: date => {
+			return date.substring(0, 10)
+		},
+		getScore: author => {
+			for (score of scores) {
+				if (score.author == author) return score.score
+			}
+			return 0
+		}
+	}
 })

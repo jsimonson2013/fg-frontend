@@ -1,72 +1,74 @@
 html {
-  background-color: white
+	background-color: white
 }
 
 body {
-  margin: 0;
+	margin: 0;
 }
 
 #wrapper {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto
 }
 
 #banner {
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  background-color: #bace7e;
-  padding: 10px;
+	display: grid;
+	grid-template-rows: 2fr 1fr;
+	background-color: #bace7e;
+	padding: 10px;
 }
 
 #banner-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-columns: auto;
-  text-align: center;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-columns: auto;
+	text-align: center;
 }
 
 .banner-link {
 	padding: 10px;
 	margin: 10px;
 	border: 1px outset lightgrey;
-	font-size: 28px
+	font-size: 28px;
+	border-radius: 5px;
 }
 
 .banner-header {
-  font-size: 56px;
-  font-family: Helvetica;
-  color: #2b2b2b;
-  margin-top: 10px
+	font-size: 56px;
+	font-family: Helvetica;
+	color: #2b2b2b;
+	margin-top: 10px
 }
 
 .feed-post {
-  display: grid;
-  grid-template-columns: 2fr 1 fr;
-  background-color: #f5f8ed;
-  border-bottom: 1px solid lightgray;
-  padding: 5px;
-  margin: 5px 1px 1px 1px;
+	display: grid;
+	grid-template-columns: 2fr 1 fr;
+	border-radius: 5px;
+	background-color: #f5f8ed;
+	border-bottom: 1px solid lightgray;
+	padding: 5px;
+	margin: 5px 1px 1px 1px;
 }
 
 .feed-upper {
-  display: grid;
-  grid-template-columns: 1fr 9fr;
-  grid-auto-rows: minmax(100px, auto);
-  margin: 0px 10px 0px 10px;
+	display: grid;
+	grid-template-columns: 1fr 9fr;
+	grid-auto-rows: minmax(100px, auto);
+	margin: 0px 10px 0px 10px;
 }
 
 .feed-lower {
-  display: grid;
-  grid-template-columns: 8fr 1fr 1fr;
-  margin: 0px 10px 0px 10px;
+	display: grid;
+	grid-template-columns: 8fr 1fr 1fr;
+	margin: 0px 10px 0px 10px;
 }
 
 .vote-button {
-  cursor: pointer;
-  text-align: left;
-  margin-top: auto;
-  margin-bottom: auto
+	cursor: pointer;
+	text-align: left;
+	margin-top: auto;
+	margin-bottom: auto
 }
 
 .tooltip {
@@ -85,46 +87,46 @@ body {
 }
 
 .comment-content {
-  font-size: 34px;
-  font-family: Helvetica;
-  color: #2b2b2b;
-  display: inline-block;
+	font-size: 34px;
+	font-family: Helvetica;
+	color: #2b2b2b;
+	display: inline-block;
 }
 
 .comment-stats {
-  font-size: 18px;
-  font-family: Helvetica;
-  color: #2b2b2b;
-  width: 90%
+	font-size: 18px;
+	font-family: Helvetica;
+	color: #2b2b2b;
+	width: 90%
 }
 
 .post-link {
-  font-size: 38px;
-  font-family: serif;
-  color: #2b2b2b;
-  cursor: pointer;
-  border-style: outset;
-  border-width: 1px;
-  border-top-color: white;
-  border-left-color: white;
-  border-bottom-color: lightgray;
-  border-right-color: lightgray;
-  padding: 2px
+	font-size: 38px;
+	font-family: serif;
+	color: #2b2b2b;
+	cursor: pointer;
+	border-style: outset;
+	border-width: 1px;
+	border-top-color: white;
+	border-left-color: white;
+	border-bottom-color: lightgray;
+	border-right-color: lightgray;
+	padding: 2px
 }
 
 .post-text {
-  font-size: 34px;
-  font-family: Helvetica;
-  color: #2b2b2b;
+	font-size: 34px;
+	font-family: Helvetica;
+	color: #2b2b2b;
 }
 
 .post-stats {
-  font-size: 18px;
-  font-family: Helvetica;
-  color: #2b2b2b;
-  width: 90%
+	font-size: 18px;
+	font-family: Helvetica;
+	color: #2b2b2b;
+	width: 90%
 }
 
 .comment-button {
-  text-align: right;
+	text-align: right;
 }

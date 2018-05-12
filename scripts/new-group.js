@@ -1,6 +1,6 @@
 var app = new Vue({
-  el: '#form',
-  data: {
-    uid: getCookie('UID')
-  }
+	el: '#form',
+	data: {
+		uid: getCookie('UID')
+	}
 })
