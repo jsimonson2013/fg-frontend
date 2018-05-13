@@ -6,6 +6,7 @@ var app = new Vue({
 	el: '#form',
 	data: {
 		pid: getCookie('PID'),
+		gid: getCookie('GID'),
 		uid: getCookie('UID')
 	},
 	computed: {
@@ -39,6 +40,7 @@ var app = new Vue({
 				'link': etc,
 				'parent_id': app.pid || '',
 				'timestamp': app.timestamp,
+				'group_id': app.gid,
 				'user_id': app.uid
 			})
 

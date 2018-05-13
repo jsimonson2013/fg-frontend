@@ -12,6 +12,12 @@ const app = new Vue({
 	el: '#wrapper',
 	data: {
 		groups
+	},
+	methods: {
+		switchGroup: gid => {
+			document.cookie = 'GID='+gid+';path=/;max-age=31536000'
+			window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
+		}
 	}
 })
 

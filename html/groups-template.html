@@ -17,9 +17,9 @@
 	</div>
 </div>
 <div id="wrapper">
-<div id="group-list" style="height: 70%">
+<div id="group-list" style="height: 70%" class="group-card">
 <div v-for="group in groups">
-	<h3>{{ group.name }}</h3>
+	<h3 class="post-link" @click="switchGroup(group.group_id)">{{ group.name }}</h3>
 </div>
 </div>
 </div>
