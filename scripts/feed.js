@@ -50,9 +50,10 @@ window.onload = () => {
 }
 
 const app = new Vue({
-	el: '#feed-list',
+	el: '#outside',
 	data: {
 		posts,
+		groupname: 'Ex Roomies :\'( Still Besties :)',
 		ready: false
 	},
 	methods: {
@@ -71,7 +72,7 @@ const app = new Vue({
 		return 0
 		},
 		formattedDate: date => {
-			return date.substring(0,10)
+			return date.substring(0,19).replace('T', ' at ')
 		},
 		getScore: author => {
 			for (score of scores) {

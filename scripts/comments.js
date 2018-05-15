@@ -48,7 +48,7 @@ const app = new Vue({
 			return decodeURIComponent(content)
 		},
 		formattedDate: date => {
-			return date.substring(0, 10)
+			return date.substring(0, 19).replace('T', ' at ')
 		},
 		getScore: author => {
 			for (score of scores) {

@@ -8,8 +8,9 @@
 <link rel="manifest" href="../manifest.json">
 <head>
 <body>
+<div id="outside">
 <div id="banner">
-	<h1 class="banner-header">Ex Roomies :'( Still Besties :)</h1>
+	<h1 class="banner-header">{{ groupname }}</h1>
 	<div id="banner-links">
 	<a class="banner-link" href="https://jacobsimonson.me/fg-release/0.0.5.html">Release 0.0.5</a>
 	<a class="banner-link" href="../html/profile-template.html">My Profile</a>
@@ -24,15 +25,16 @@
 	<h3 v-bind:class="{ 'post-link': isLink(post.link.length), 'post-text': !isLink(post.link.length) }" @click="openPost(post.link)">{{ body(post.content) }}</h3>
 	</div>
 	<div class="feed-lower">
-	<p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.create_date) }}.</p>
+	<p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.date) }}.</p>
 	<a class="comment-button" @click="viewComments(post.post_id)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
 	<h5 v-if="ready" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.post_id) }}</h5>
 	</div>
 </div>
 </div>
 </div>
+</div>
+<script type="text/javascript" src="../scripts/cookie-parser.js"></script>
 <script type="text/javascript" src="../scripts/feed.js"></script>
 <script type="text/javascript" src="../scripts/test-login.js"></script>
-<script type="text/javascript" src="../scripts/cookie-parser.js"></script>
 </body>
 </html>

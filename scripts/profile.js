@@ -37,7 +37,7 @@ window.onload = () => {
 	fetch('https://fgapi.jacobsimonson.me/groups/?user_id='+getCookie('UID'), {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
-		for (item of res) groups.push(item.name)
+		for (item of res) groups.push(item)
 	})
 }
 
@@ -61,6 +61,10 @@ const app = new Vue({
 		signOut: () => {
 			document.cookie = 'UID=;path=/;Max-Age=-99999999;'
 			window.open('https://friendgroup.jacobsimonson.me', '_self')
+		},
+		openGroup: gid => {
+			document.cookie = 'GID='+gid+';path=/;<ax-Age=9000000;'
+			window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
 		}
 	}
 })

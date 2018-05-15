@@ -20,7 +20,7 @@
 <p v-if="comments.length < 1" style="font-family: Helvetica; font-size: 18px">There are no comments for this post... Be the first to comment by clicking that link at the top.</p>
 <div v-for="comment in comments" v-if="comment.content" class="feed-post">
 	<h3 class="comment-content">{{ body(comment.content) }}</h3>
-	<p class="comment-stats">Commented by <a class="author">{{ comment.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(comment.author) }}</a> on {{ formattedDate(comment.create_date) }}.</p>
+	<p class="comment-stats">Commented by <a class="author">{{ comment.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(comment.author) }}</a> on {{ formattedDate(comment.date) }}.</p>
 </div>
 </div>
 </div>
