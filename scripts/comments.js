@@ -48,7 +48,13 @@ const app = new Vue({
 			return decodeURIComponent(content)
 		},
 		formattedDate: date => {
-			return date.substring(0, 19).replace('T', ' at ')
+			const dateString = date.substring(0,10)
+			let timeString = date.substring(11, 19)
+
+			if (timeString == '00:00:00') timeString = ''
+			else timeString = ` at ${timeString}`
+
+			return `${dateString}${timeString}`
 		},
 		getScore: author => {
 			for (score of scores) {

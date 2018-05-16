@@ -11,7 +11,10 @@ var app = new Vue({
 	},
 	computed: {
 		timestamp: () => {
-			return new Date().toISOString().slice(0,19).replace('T', ' ')
+			const currentDateTime = new Date()
+			let localeTime = currentDateTime.toLocaleTimeString().split(' ')[0]
+			if (localeTime.split(':')[0].length != 2) localeTime = `0${localeTime}`
+			return `${currentDateTime.toISOString().slice(0,10)} ${localeTime}`
 		}
 	},
 	methods: {
