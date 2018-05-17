@@ -23,8 +23,8 @@ var app = new Vue({
 			let url = 'https://fgapi.jacobsimonson.me/comments/'
 			let retaddr = 'https://friendgroup.jacobsimonson.me/html/feed-template.html'
 
-			if (document.getElementById('content').value.length < 1) {
-				alert('Text cannot be left empty.')
+			if (document.getElementById('content').value.length < 1 || document.getElementById('content').value.length > 1000) {
+				alert('Text cannot be left empty and must be less than 1000 characters.')
 				return
 			}
 
