@@ -1,39 +1,8 @@
 let posts = []
 let comments = []
-let promises = []
 let scores = []
 
-const populateComments = local => {
-	for (post of local) {
-		const id = post.post_id
-
-		const commentsPromise = fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+id, {method: 'GET'})
-		.then(res => {return res.json()})
-		.then(json => {
-			const comms = {
-				pid: id,
-				num: json.length
-			}
-			comments.push(comms)
-		})
-		promises.push(commentsPromise)
-
-		const first = post.author.split(' ')[0]
-		const last = post.author.split(' ')[1]
-
-		const scorePromise = fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
-		.then(res => {return res.json()})
-		.then(json => {
-			const scr = {
-				author: `${first} ${last}`,
-				score: json.score
-			}
-			scores.push(scr)
-		})
-		promises.push(scorePromise)
-	}
-	Promise.all(promises).then(() => {app.ready = true})
-}
+const ready = false
 
 window.onload = () => {
 	testLogin()
@@ -45,7 +14,7 @@ window.onload = () => {
 			posts.push(post)
 		}
 		const copy = posts
-		populateComments(copy)
+		populateContents('feed', copy, scores, comments)
 	})
 }
 
@@ -54,7 +23,7 @@ const app = new Vue({
 	data: {
 		posts,
 		groupname: 'Ex Roomies :\'( Still Besties :)',
-		ready: false
+		ready
 	},
 	methods: {
 		isLink: len => {

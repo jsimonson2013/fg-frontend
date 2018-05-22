@@ -1,27 +1,7 @@
 let comments = []
-let promises = []
 let scores = []
 
 const ready = false
-
-const populateComments = local => {
-	for (post of local) {
-		const first = post.author.split(' ')[0]
-		const last = post.author.split(' ')[1]
-
-		const scorePromise = fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
-		.then(res => {return res.json()})
-		.then(json => {
-			const scr = {
-				author: `${first} ${last}`,
-				score: json.score
-			}
-			scores.push(scr)
-		})
-		promises.push(scorePromise)
-	}
-	Promise.all(promises).then(() => {app.ready = true})
-}
 
 window.onload = () => {
 	testLogin()
@@ -33,7 +13,7 @@ window.onload = () => {
 			comments.push(comment)
 		}
 		const copy = comments
-		populateComments(copy)
+		populateContents('comments', copy, scores, null)
 	})
 }
 
