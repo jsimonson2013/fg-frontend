@@ -55,20 +55,21 @@ const app = new Vue({
 			}
 			return 0
 		},
-		voteOnPost: id => {
+		voteOnPost: (id, el) => {
 			const payload = JSON.stringify({
 				'post_id': id,
 				'user_id': getCookie('UID')
 			})
 
 			fetch('https://fgapi.jacobsimonson.me/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
+			.then(() => {
+				fetch('https://fgapi.jacobsimonson.me/votes/?post_id='+id, {method: 'GET'})
+				.then(res => {return res.json()})
+				.then(json => {
+					el.innerHTML = json.length
+				})
+			})
 		}, 
-		darkimg: elem => {
-			elem.target.setAttribute('src', '../imgs/votedown.png')
-		},
-		lightimg: elem => {
-			elem.target.setAttribute('src', '../imgs/voteicon.png')
-		},
 		viewComments: id => {
 			document.cookie = 'PID='+id+';path=/'
 		},
