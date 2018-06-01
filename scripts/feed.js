@@ -1,6 +1,7 @@
 let posts = []
 let comments = []
 let scores = []
+let votes = []
 
 const ready = false
 
@@ -13,8 +14,16 @@ window.onload = () => {
 		for(post of res) {
 			posts.push(post)
 		}
+
 		const copy = posts
-		populateContents('feed', copy, scores, comments)
+
+		populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
+		.then(() => {
+			for(vote of votes) {
+				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<b>${vote.num}<b>`
+			}
+		})
+
 	})
 }
 
@@ -38,7 +47,13 @@ const app = new Vue({
 			for (comment of comments) {
 				if (comment.pid == post) return comment.num
 			}
-		return 0
+			return 0
+		},
+		numVotes: post => {
+			for (vote of votes) {
+				if (vote.pid == post) return vote.num
+			}
+			return 0
 		},
 		formattedDate: date => {
 			const dateString = date.substring(0,10)
@@ -63,11 +78,13 @@ const app = new Vue({
 
 			fetch('https://fgapi.jacobsimonson.me/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
 			.then(() => {
+
 				fetch('https://fgapi.jacobsimonson.me/votes/?post_id='+id, {method: 'GET'})
 				.then(res => {return res.json()})
 				.then(json => {
-					el.innerHTML = json.length
+					if (el.childNodes[0].tagName == 'IMG') el.innerHTML = `<b>${json.length}<b>`
 				})
+
 			})
 		}, 
 		viewComments: id => {

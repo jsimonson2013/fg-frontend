@@ -13,7 +13,7 @@ window.onload = () => {
 			comments.push(comment)
 		}
 		const copy = comments
-		populateContents('comments', copy, scores, null)
+		populateContents('comments', copy, scores, null, null)
 	})
 }
 
