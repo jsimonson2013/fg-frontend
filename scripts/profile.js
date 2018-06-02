@@ -62,8 +62,9 @@ const app = new Vue({
 			document.cookie = 'UID=;path=/;Max-Age=-99999999;'
 			window.open('https://friendgroup.jacobsimonson.me', '_self')
 		},
-		openGroup: gid => {
-			document.cookie = 'GID='+gid+';path=/;<ax-Age=9000000;'
+		openGroup: (gid, gname) => {
+			document.cookie = 'GID='+gid+';path=/;max-Age=9000000;'
+			document.cookie = 'GNAME='+gname+';path=/;max-age=9000000;'
 			window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
 		}
 	}

@@ -6,6 +6,15 @@ body {
 	margin: 0;
 }
 
+h5 {
+	font-size: 16px;
+	font-family: Helvetica;
+}
+
+h5:hover {
+	cursor: text
+}
+
 #wrapper {
 	width: 90%;
 	margin-left: auto;
@@ -66,7 +75,7 @@ body {
 
 .vote-button {
 	cursor: pointer;
-	text-align: left;
+	text-align: center;
 	margin-top: auto;
 	margin-bottom: auto
 }

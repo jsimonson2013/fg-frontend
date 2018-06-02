@@ -20,7 +20,7 @@ window.onload = () => {
 		populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
 		.then(() => {
 			for(vote of votes) {
-				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<b>${vote.num}<b>`
+				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
 			}
 		})
 
@@ -31,7 +31,7 @@ const app = new Vue({
 	el: '#outside',
 	data: {
 		posts,
-		groupname: 'Ex Roomies :\'( Still Besties :)',
+		groupname: getCookie('GNAME'),
 		ready
 	},
 	methods: {
