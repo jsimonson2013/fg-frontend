@@ -1,20 +1,29 @@
 let posts = []
 let comments = []
+
 let scores = []
 let votes = []
 
+let oldestDate = ''
 const ready = false
 
 window.onload = () => {
 	testLogin()
 
-	fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID'), {method: 'GET'})
+	const currentDateTime = new Date()
+	let localeTime = currentDateTime.toLocaleTimeString().split(' ')[0]
+
+	if (localeTime.split(':')[0].length != 2) localeTime = `0${localeTime}`
+	oldestDate = `${currentDateTime.toISOString().slice(0,10)} ${localeTime}`
+
+	fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID')+'&start_date='+oldestDate, {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		for(post of res) {
 			posts.push(post)
 		}
 
+		oldestDate = posts[posts.length - 1].date
 		const copy = posts
 
 		populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
@@ -23,8 +32,34 @@ window.onload = () => {
 				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
 			}
 		})
-
 	})
+}
+
+let doing = false
+window.onscroll = () => {
+	if(window.innerHeight + window.scrollY >= document.body.scrollTopMax*0.90 && !doing) {
+		doing = true
+
+		fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID')+'&start_date='+oldestDate, {method: 'GET'})
+		.then( res => {return res.json()})
+		.then( res => {
+			for(post of res) {
+				posts.push(post)
+			}
+
+			oldestDate = posts[posts.length - 1].date
+			const copy = posts
+
+			populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
+			.then(() => {
+				for(vote of votes) {
+					if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
+				}
+
+				setTimeout(() => {doing = false}, 1000)
+			})
+		})
+	}
 }
 
 const app = new Vue({
