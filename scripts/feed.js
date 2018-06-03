@@ -39,16 +39,20 @@ let doing = false
 window.onscroll = () => {
 	if(window.innerHeight + window.scrollY >= document.body.scrollTopMax*0.90 && !doing) {
 		doing = true
-		app.ready = false
+
 		fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID')+'&start_date='+oldestDate, {method: 'GET'})
 		.then( res => {return res.json()})
 		.then( res => {
+			if (res.length < 1) return
+
 			for(post of res) {
 				posts.push(post)
 			}
 
 			oldestDate = posts[posts.length - 1].date
 			const copy = posts
+
+			app.ready = false
 
 			populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
 			.then(() => {
