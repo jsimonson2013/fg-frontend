@@ -10,7 +10,7 @@ changePass = (newpass, user) => {
 
 	fetch('https://fgapi.jacobsimonson.me/pass/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
 	.then(res => {
-		console.log(newpass, user)
+		console.log('Changed password...')
 	})
 }
 

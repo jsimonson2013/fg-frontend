@@ -10,7 +10,7 @@ window.onload = () => {
 	}
 }
 const app = new Vue({
-	el: "#form",
+	el: "#wrapper",
 	data: {
 		user: "",
 		pass: ""
@@ -26,6 +26,21 @@ const app = new Vue({
 				document.cookie = 'GNAME='+res.gname+';path=/;max-age=315360000'
 				window.open(res.url, '_self')
 			})
+		},
+		forgotPassword: () => {
+			const email = prompt('Enter the email associated with your profile.', '')
+
+			if (email) {
+				fetch('https://fgapi.jacobsimonson.me/reset-pass/?email=' + email, {method: 'GET'})
+				.then( res => {
+					if(res.status == 200){
+						alert("An email has been sent with a new password.")
+					}
+					else {
+						alert("No account found with that email...")
+					}
+				})
+			}
 		}
 	}
 })

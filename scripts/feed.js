@@ -11,6 +11,8 @@ window.onload = () => {
 	testLogin()
 
 	const currentDateTime = new Date()
+	currentDateTime.setFullYear(new Date().getFullYear() + 1)
+
 	let localeTime = currentDateTime.toLocaleTimeString().split(' ')[0]
 
 	if (localeTime.split(':')[0].length != 2) localeTime = `0${localeTime}`

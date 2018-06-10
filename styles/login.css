@@ -9,6 +9,10 @@ body {
 	margin: 0;
 }
 
+a:hover {
+	cursor: pointer;
+}
+
 #header {
 	font-family: Helvetica;
 	font-size: 58px;
