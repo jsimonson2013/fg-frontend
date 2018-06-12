@@ -66,6 +66,14 @@ const app = new Vue({
 			document.cookie = 'GID='+gid+';path=/;max-Age=9000000;'
 			document.cookie = 'GNAME='+gname+';path=/;max-age=9000000;'
 			window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
+		},
+		inviteToGroup: (gid, gname) => {
+			const email = prompt(`Enter the email of the person you would like to invite to ${gname}.`, '')
+
+			if (email) {
+				if(confirm(`Are you sure you would like us to email this person an invite to ${gname}?`))
+					fetch('https://fgapi.jacobsimonson.me/invite/?email='+email+'&gid='+gid+'&uid='+getCookie('UID'), {method: 'GET'})
+			}
 		}
 	}
 })

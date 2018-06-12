@@ -7,6 +7,14 @@
 	cursor: pointer;
 }
 
+.invite-button {
+	text-decoration: underline;
+	color: blue;
+}
+
+.invite-button:hover {
+	cursor: pointer;
+}
 .prof-button {
 	font-size: 28px;
 	padding: 10px;

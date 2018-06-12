@@ -21,7 +21,10 @@
 	<h3 v-if="ready" style="padding: 10px; font-family: Helvetica; font-size: 36px; font-color: #2b2b2b">Score: {{ score }}</h3>
 	<h3 style="padding: 10px; font-family: Helvetica; font-size: 36px; font-color: #2b2b2b">Groups:</h3>
 	<ul v-if="ready">
-		<li v-for="group in groups" style="padding-bottom: 10px; font-family: serif; font-size: 28px;"><a class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a></li>
+		<li v-for="group in groups" style="padding-bottom: 10px; font-family: serif; font-size: 28px;">
+			<a class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a>
+			<!--<a class="invite-button" @click="inviteToGroup(group.group_id, group.name)">invite</a>-->
+		</li>
 	</ul>
 </div id="profile-buttons">
 	<button class="prof-button" @click="alertPassChange">Change Password</button>
