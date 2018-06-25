@@ -13,6 +13,10 @@ a:hover {
 	cursor: pointer;
 }
 
+h3 {
+	font-size: 32px;
+}
+
 #header {
 	font-family: Helvetica;
 	font-size: 58px;
@@ -32,6 +36,15 @@ a:hover {
 	grid-template-columns: 1fr 3fr 1fr;
 }
 
+#signup-content {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-row-gap: 10px;
+	border-bottom: 1px solid lightgray;
+	padding: 10px;
+	background-color: #f5f8ed 
+}
+
 #content {
 	display: grid;
 	grid-template-rows: 1fr 1fr 1fr;
@@ -41,11 +54,7 @@ a:hover {
 	background-color: #f5f8ed 
 }
 
-#user {
-	font-size: 24px;
-}
-
-#pass {
+.input {
 	font-size: 24px;
 }
 

@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>FriendGroup - Login/Signup</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="scripts/cookie-parser.js"></script>
+<link rel="stylesheet" type="text/css" href="../styles/login.css">
+<link rel="shortcut icon" href="../imgs/favico.png"
+</head>
+<body>
+<h1 id="header">Signup for FriendGroup!</h1>
+<div id="wrapper">
+<div id="form">
+	<div>
+	</div>
+	<div id="signup-content">
+		<h3>Please enter the following:</h3>
+		<input id="first" class="input" type="text" placeholder="Firstname...">
+		<input id="last" class="input" type="text" placeholder="Lastname...">
+    <input id="email" class="input" type="text" placeholder="Preferred Email...">
+		<input id="user" class="input" type="text" placeholder="Username..." v-model="user">
+    <input id="pass" class="input" type="password" placeholder="Password..." v-model="pass">
+		<button id="submit" @click="login" >Sign Up</button><br>
+	</div>
+	<div>
+	</div>
+</div>
+</div>
+</body>
+<script src="scripts/create-profile.js"></script>
+</html>
