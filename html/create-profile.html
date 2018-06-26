@@ -15,17 +15,17 @@
 	</div>
 	<div id="signup-content">
 		<h3>Please enter the following:</h3>
-		<input id="first" class="input" type="text" placeholder="Firstname...">
-		<input id="last" class="input" type="text" placeholder="Lastname...">
-    <input id="email" class="input" type="text" placeholder="Preferred Email...">
+		<input id="first" class="input" type="text" placeholder="Firstname..." v-model="first">
+		<input id="last" class="input" type="text" placeholder="Lastname..." v-model="last">
+    <input id="email" class="input" type="text" placeholder="Preferred Email..." v-model="email">
 		<input id="user" class="input" type="text" placeholder="Username..." v-model="user">
     <input id="pass" class="input" type="password" placeholder="Password..." v-model="pass">
-		<button id="submit" @click="login" >Sign Up</button><br>
+		<button id="submit" @click="signUp" >Sign Up</button><br>
 	</div>
 	<div>
 	</div>
 </div>
 </div>
 </body>
-<script src="scripts/create-profile.js"></script>
+<script src="../scripts/create-profile.js"></script>
 </html>
