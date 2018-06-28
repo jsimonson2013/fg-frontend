@@ -19,7 +19,11 @@ const app = new Vue({
 		login: () => {
 			const payload = `?user=${document.getElementById('user').value}&pass=${document.getElementById('pass').value}`
 			fetch('https://fgapi.jacobsimonson.me/login/'+payload, {method: 'GET'})
-			.then(res => {return res.json()})
+			.then(res => {
+				if (res.status == 404) alert ('Please enter the email and password for your account. If you have forgotten your password, click that link below to reset.')
+
+				else return res.json()
+			})
 			.then(res => {
 				document.cookie = 'UID='+res.uid+';path=/;max-age=31536000'
 				document.cookie = 'GID='+res.gid+';path=/;max-age=31536000'
