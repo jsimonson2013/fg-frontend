@@ -3,7 +3,7 @@
 <meta charset="utf-8"/>
 <title>FriendGroup - Login/Signup</title>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-<script src="scripts/cookie-parser.js"></script>
+<script src="../scripts/cookie-parser.js"></script>
 <link rel="stylesheet" type="text/css" href="../styles/login.css">
 <link rel="shortcut icon" href="../imgs/favico.png"
 </head>
@@ -14,11 +14,11 @@
 	<div>
 	</div>
 	<div id="signup-content">
+		<h3>First enter the code:</h3>
+		<input id="code" class="input" type="text" placeholder="Email Code..." v-model="code">
 		<h3>Please enter the following:</h3>
 		<input id="first" class="input" type="text" placeholder="Firstname..." v-model="first">
 		<input id="last" class="input" type="text" placeholder="Lastname..." v-model="last">
-    <input id="email" class="input" type="text" placeholder="Preferred Email..." v-model="email">
-		<input id="user" class="input" type="text" placeholder="Username..." v-model="user">
     <input id="pass" class="input" type="password" placeholder="Password..." v-model="pass">
 		<button id="submit" @click="signUp" >Sign Up</button><br>
 	</div>
