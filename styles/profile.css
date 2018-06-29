@@ -1,6 +1,7 @@
 .group-link {
-	text-decoration: underline;
-	color: blue;
+	text-decoration: none;
+	color: black;
+	font-family: serif;
 }
 
 .group-link:hover {
@@ -8,19 +9,34 @@
 }
 
 .invite-button {
-	text-decoration: underline;
-	color: blue;
+	text-decoration: none;
+	color: black;
+	background-color: lightgrey;
+	text-align: center;
+	border: 1px outset lightgrey;
+	border-radius: 2px;
 }
 
 .invite-button:hover {
 	cursor: pointer;
 }
+
 .prof-button {
 	font-size: 28px;
 	padding: 10px;
 	cursor: pointer;
 	font-family: Helvetica;
 	font-color: #2b2b2b
+}
+
+.group-card {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	border-radius: 5px;
+	background-color: #f5f8ed;
+	border-bottom: 1px solid lightgray;
+	padding: 25px;
+	margin: 5px 1px 1px 1px;
 }
 
 #group-link {
