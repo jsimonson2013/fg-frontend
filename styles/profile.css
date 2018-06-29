@@ -1,6 +1,7 @@
 .group-link {
 	text-decoration: none;
 	color: black;
+	font-size: 36px;
 	font-family: serif;
 }
 
@@ -35,7 +36,7 @@
 	border-radius: 5px;
 	background-color: #f5f8ed;
 	border-bottom: 1px solid lightgray;
-	padding: 25px;
+	padding: 35px;
 	margin: 5px 1px 1px 1px;
 }
 
