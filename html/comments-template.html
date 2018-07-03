@@ -7,8 +7,9 @@
 <link rel="shortcut icon" href="../imgs/favico.png"
 <head>
 <body>
+<div id="outside">
 <div id="banner">
-	<h1 class="banner-header">Ex Roomies :'( Still Besties :)</h1>
+	<h1 class="banner-header">{{ groupname }}</h1>
 	<div id="banner-links">
 		<a class="banner-link" href="../html/feed-template.html">Home</a>
 		<a class="banner-link" href="../html/profile-template.html">My Profile</a>
@@ -21,6 +22,7 @@
 <div v-for="comment in comments" v-if="comment.content" class="feed-post">
 	<h3 class="comment-content">{{ body(comment.content) }}</h3>
 	<p class="comment-stats">Commented by <a class="author">{{ comment.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(comment.author) }}</a> on {{ formattedDate(comment.date) }}.</p>
+</div>
 </div>
 </div>
 </div>

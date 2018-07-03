@@ -18,9 +18,10 @@ window.onload = () => {
 }
 
 const app = new Vue({
-	el: '#comment-list',
+	el: '#outside',
 	data: {
 		ready,
+		groupname: getCookie('GNAME'),
 		comments
 	},
 	methods: {

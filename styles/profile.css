@@ -10,6 +10,8 @@
 }
 
 .invite-button {
+	margin-top: auto;
+	margin-bottom: auto;
 	text-decoration: none;
 	color: black;
 	background-color: lightgrey;
