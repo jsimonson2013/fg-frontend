@@ -38,6 +38,9 @@ h5:hover {
 .banner-link {
 	padding: 10px;
 	margin: 10px;
+	text-decoration: none;
+	font-family: serif;
+	color: #2b2b2b;
 	border: 1px outset lightgrey;
 	font-size: 28px;
 	border-radius: 5px;

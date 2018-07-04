@@ -1,4 +1,8 @@
 window.onload = () => {
+	document.getElementById('pass').addEventListener('keyup', e => {
+		if (e.keyCode == 13) document.getElementById('submit').click()
+	})
+
 	if (getCookie('UID')) {
 		fetch('https://fgapi.jacobsimonson.me/bypass/?user=' + getCookie('UID'), {method: 'GET'})
 		.then(res => {return res.json()})
@@ -9,6 +13,7 @@ window.onload = () => {
 		})
 	}
 }
+
 const app = new Vue({
 	el: "#wrapper",
 	data: {

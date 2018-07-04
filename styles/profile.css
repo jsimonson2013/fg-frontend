@@ -1,3 +1,10 @@
+h3 {
+	padding: 10px;
+	font-family: Helvetica;
+	font-size: 36px;
+	color: #2b2b2b;
+}
+
 .group-link {
 	text-decoration: none;
 	color: black;
@@ -9,6 +16,13 @@
 	cursor: pointer;
 }
 
+#profile {
+	background-color: #f5f8ed;
+	padding: 20px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
 .invite-button {
 	margin-top: auto;
 	margin-bottom: auto;
@@ -17,6 +31,17 @@
 	background-color: lightgrey;
 	text-align: center;
 	border: 1px outset lightgrey;
+	border-radius: 2px;
+}
+
+button {
+	margin-top: auto;
+	margin-bottom: auto;
+	text-decoration: none;
+	color: black;
+	background-color: lightgrey;
+	text-align: center;
+	border: 1px solid lightgrey;
 	border-radius: 2px;
 }
 
@@ -35,11 +60,15 @@
 .group-card {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	border-radius: 5px;
 	background-color: #f5f8ed;
-	border-bottom: 1px solid lightgray;
+	border-style: outset;
+	border-width: 1px;
+	border-top-color: white;
+	border-left-color: white;
+	border-bottom-color: lightgray;
+	border-right-color: lightgray;
 	padding: 35px;
-	margin: 5px 1px 1px 1px;
+	margin: 5px 1px 10px 1px;
 }
 
 #group-link {
