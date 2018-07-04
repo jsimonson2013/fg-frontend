@@ -13,25 +13,30 @@
 	<h1 class="banner-header" v-if="user[0]">{{ user[0].firstname }} {{ user[0].lastname }}</h1>
 	<div id="banner-links">
 	<a class="banner-link" href="../html/feed-template.html">Home</a>
+	<h5 class="banner-link" @click="alertPassChange">Change Pass</h5>
+	<h5 class="banner-link" @click="signOut">Logout</h5>
 	</div>
 </div>
 <div id="wrapper">
 <div id="profile">
-	<h3 v-if="ready">Score: {{ score }}</h3>
-	<h3>Groups:</h3>
+		<h3 v-if="ready">Score: {{ score }}</h3>
+	<div id="groups-header">
+		<h3>Groups:</h3>
+		<button class="prof-button" @click="newGroup">+ Group</button>
+	</div>
 	<div v-if="ready">
 		<div v-for="group in groups" class="group-card" style="padding-bottom: 10px; font-family: serif; font-size: 28px;">
 			<a class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a>
 			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name)">Invite</a>
+			<a class="invite-button" v-if="groups.length > 1" @click="leaveGroup(group.group_id)">Leave</a>
+			<a class="invite-button" v-if="notDefault(group.group_id)" @click="makeDefaultGroup(group.group_id)">Default</a>
 		</div>
 	</div>
-</div id="profile-buttons">
-	<button class="prof-button" @click="alertPassChange">Change Password</button>
-	<button class="prof-button" @click="signOut">Sign Out</button>
 </div>
 </div>
+</div>
+</body>
 <script src="../scripts/cookie-parser.js"></script>
 <script src="../scripts/test-login.js"></script>
 <script src="../scripts/profile.js"></script>
-</body>
 </html>

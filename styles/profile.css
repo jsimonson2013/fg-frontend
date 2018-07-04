@@ -5,6 +5,11 @@ h3 {
 	color: #2b2b2b;
 }
 
+#groups-header {
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+}
+
 .group-link {
 	text-decoration: none;
 	color: black;
@@ -20,12 +25,13 @@ h3 {
 	background-color: #f5f8ed;
 	padding: 20px;
 	margin-top: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 100px;
 }
 
 .invite-button {
 	margin-top: auto;
 	margin-bottom: auto;
+	margin-left: 10px;
 	text-decoration: none;
 	color: black;
 	background-color: lightgrey;
@@ -37,6 +43,7 @@ h3 {
 button {
 	margin-top: auto;
 	margin-bottom: auto;
+	margin-left: 10px;
 	text-decoration: none;
 	color: black;
 	background-color: lightgrey;
@@ -53,13 +60,13 @@ button {
 	font-size: 28px;
 	padding: 10px;
 	cursor: pointer;
-	font-family: Helvetica;
+	font-family: serif;
 	font-color: #2b2b2b
 }
 
 .group-card {
 	display: grid;
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: 3fr 1fr 1fr 1fr;
 	background-color: #f5f8ed;
 	border-style: outset;
 	border-width: 1px;

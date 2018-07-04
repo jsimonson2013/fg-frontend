@@ -74,6 +74,18 @@ const app = new Vue({
 				if(confirm(`Are you sure you would like us to email this person an invite to ${gname}?`))
 					fetch('https://fgapi.jacobsimonson.me/invite/?email='+email+'&gid='+gid+'&uid='+getCookie('UID'), {method: 'GET'})
 			}
+		},
+		leaveGroup: (gid) => {
+			alert('Gimme another week to implement these...')
+		},
+		makeDefaultGroup: (gid) => {
+			alert('Gimme another week to implement these...')
+		},
+		notDefault: () => {
+			return true
+		},
+		newGroup: () => {
+			alert('Gimme another week to implement these...')
 		}
 	}
 })

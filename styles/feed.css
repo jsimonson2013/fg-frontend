@@ -40,10 +40,15 @@ h5:hover {
 	margin: 10px;
 	text-decoration: none;
 	font-family: serif;
+	font-weight: bold;
 	color: #2b2b2b;
 	border: 1px outset lightgrey;
 	font-size: 28px;
 	border-radius: 5px;
+}
+
+.banner-link:hover {
+	cursor: pointer;
 }
 
 .banner-header {
