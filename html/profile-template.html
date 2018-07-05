@@ -27,9 +27,9 @@
 	<div v-if="ready">
 		<div v-for="group in groups" class="group-card" style="padding-bottom: 10px; font-family: serif; font-size: 28px;">
 			<a class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a>
-			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name)">Invite</a>
 			<a class="invite-button" v-if="groups.length > 1" @click="leaveGroup(group.group_id)">Leave</a>
-			<a class="invite-button" v-if="notDefault(group.group_id)" @click="makeDefaultGroup(group.group_id)">Default</a>
+			<a class="invite-button" v-if="notDefault(group.group_id)" @click="makeDefaultGroup(group.group_id, group.name)">Default</a>
+			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name)">Invite</a>
 		</div>
 	</div>
 </div>

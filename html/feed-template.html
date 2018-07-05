@@ -19,6 +19,7 @@
 </div>
 <div id="wrapper">
 <div id="feed-list" style="height: 70%">
+<p v-if="posts.length < 1" style="font-family: Helvetica; font-size: 18px">There are no posts in this group... Be the first to post by clicking that button at the top.</p>
 <div v-for="post in posts" v-if="post.content" class="feed-post">
 	<div class="feed-upper">
 	<a :id="post.post_id" class="vote-button" @click="voteOnPost(post.post_id, $event.target.parentElement)"><img src="../imgs/voteicon.png" style="width: 25px; height: 25px"></a>

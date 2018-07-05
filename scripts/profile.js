@@ -31,6 +31,7 @@ window.onload = () => {
 	.then( res => {return res.json()})
 	.then( res => {
 		for (item of res) user.push(item)
+
 		getScore(user[0].firstname, user[0].lastname)
 	})
 
@@ -78,11 +79,17 @@ const app = new Vue({
 		leaveGroup: (gid) => {
 			alert('Gimme another week to implement these...')
 		},
-		makeDefaultGroup: (gid) => {
-			alert('Gimme another week to implement these...')
+		makeDefaultGroup: (gid, gname) => {
+			fetch('https://fgapi.jacobsimonson.me/change-group/?gid='+gid+'&gname='+gname+'&uid='+getCookie('UID'), {method: 'GET'})
+			.then(res => {
+				document.cookie = 'GID='+gid+';path=/;max-Age=9000000;'
+				document.cookie = 'GNAME='+gname+';path=/;max-age=9000000;'
+				window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
+			})
 		},
-		notDefault: () => {
-			return true
+		notDefault: (gid) => {
+			if (getCookie('GID') == gid) return false
+			else return true
 		},
 		newGroup: () => {
 			alert('Gimme another week to implement these...')
