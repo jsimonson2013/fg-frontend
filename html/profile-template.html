@@ -22,13 +22,15 @@
 		<h3 v-if="ready">Score: {{ score }}</h3>
 	<div id="groups-header">
 		<h3>Groups:</h3>
-		<button class="prof-button" @click="newGroup">+ Group</button>
+		<button class="prof-button" v-if="score > 10" @click="newGroup">+ Group</button>
 	</div>
 	<div v-if="ready">
 		<div v-for="group in groups" class="group-card" style="padding-bottom: 10px; font-family: serif; font-size: 28px;">
-			<a class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a>
-			<a class="invite-button" v-if="groups.length > 1" @click="leaveGroup(group.group_id)">Leave</a>
+			<a :id="'group-'+group.group_id" class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a>
 			<a class="invite-button" v-if="notDefault(group.group_id)" @click="makeDefaultGroup(group.group_id, group.name)">Default</a>
+			<div v-else></div>
+			<a class="invite-button" v-if="groups.length > 1" @click="leaveGroup(group.group_id)">Leave</a>
+			<div v-else></div>
 			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name)">Invite</a>
 		</div>
 	</div>

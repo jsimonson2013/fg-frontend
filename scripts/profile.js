@@ -90,7 +90,22 @@ const app = new Vue({
 			}
 		},
 		leaveGroup: (gid) => {
-			alert('Not yet implemented...')
+			fetch('https://fgapi.jacobsimonson.me/leave-group/?uid='+getCookie('UID')+'&gid='+gid, {method: 'GET'})
+			.then(res => {
+				if (res.status == 200) {
+					if (confirm('Are you sure you want to leave this group? The only way to rejoin is to be invited again.')){
+						const el = document.getElementById('group-'+gid).parentNode
+						el.parentNode.removeChild(el)
+					}
+					for (group of groups) {
+						if (group.group_id == gid) {
+							groups.splice(groups.indexOf(group), 1)
+						}
+					}
+					document.cookie = 'GID='+groups[0].group_id+';path=/;max-Age=9000000;'
+					document.cookie = 'GNAME='+groups[0].name+';path=/;max-age=9000000;'
+				}
+			})
 		},
 		makeDefaultGroup: (gid, gname) => {
 			fetch('https://fgapi.jacobsimonson.me/change-group/?gid='+gid+'&gname='+gname+'&uid='+getCookie('UID'), {method: 'GET'})
