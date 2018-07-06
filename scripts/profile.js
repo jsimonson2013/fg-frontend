@@ -15,13 +15,25 @@ changePass = (newpass, user) => {
 }
 
 getScore = (first, last) => {
-	fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
+	userPromises = []
+
+	const group = fetch('https://fgapi.jacobsimonson.me/default-group/?uid='+getCookie('UID'), {method: 'GET'})
+	.then( res => {return res.json()})
+	.then( res => {
+		app.default_id = res.gid
+	})
+
+	userPromises.push(group)
+
+	const score = fetch('https://fgapi.jacobsimonson.me/score/?first='+first+'&last='+last, {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		app.score = res.score
-
-		app.ready = true
 	})
+
+	userPromises.push(score)
+
+	Promise.all(userPromises).then(app.ready = true)
 }
 
 window.onload = () => {
@@ -47,6 +59,7 @@ const app = new Vue({
 	data: {
 		user,
 		score,
+		default_id: -1,
 		groups,
 		ready: false
 	},
@@ -77,7 +90,7 @@ const app = new Vue({
 			}
 		},
 		leaveGroup: (gid) => {
-			alert('Gimme another week to implement these...')
+			alert('Not yet implemented...')
 		},
 		makeDefaultGroup: (gid, gname) => {
 			fetch('https://fgapi.jacobsimonson.me/change-group/?gid='+gid+'&gname='+gname+'&uid='+getCookie('UID'), {method: 'GET'})
@@ -88,11 +101,23 @@ const app = new Vue({
 			})
 		},
 		notDefault: (gid) => {
-			if (getCookie('GID') == gid) return false
+			if (app.default_id == gid) return false
 			else return true
 		},
 		newGroup: () => {
-			alert('Gimme another week to implement these...')
+			const name = prompt('Enter a name for the new group.', '')
+
+			if (name) {
+				if (confirm(`Are you sure you would you would like to create the ${name} group?`)) {
+					fetch('https://fgapi.jacobsimonson.me/create-group/?name='+name+'&uid='+getCookie('UID'), {method: 'GET'})
+					.then(res => {return res.json()})
+					.then(json => {
+						document.cookie = 'GID='+json.gid+';path=/;max-Age=9000000;'
+						document.cookie = 'GNAME='+json.gname+';path=/;max-age=9000000;'
+						window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
+					})
+				}
+			}
 		}
 	}
 })
