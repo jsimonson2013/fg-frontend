@@ -17,7 +17,7 @@ changePass = (newpass, user) => {
 getScore = (first, last) => {
 	userPromises = []
 
-	const group = fetch('https://fgapi.jacobsimonson.me/default-group/?uid='+getCookie('UID'), {method: 'GET'})
+	const group = fetch('https://fgapi.jacobsimonson.me/default-group/?uid='+getCookie('UNIQ'), {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		app.default_id = res.gid
@@ -39,7 +39,7 @@ getScore = (first, last) => {
 window.onload = () => {
 	testLogin()
 
-	fetch('https://fgapi.jacobsimonson.me/profile/?user_id='+getCookie('UID'), {method: 'GET'})
+	fetch('https://fgapi.jacobsimonson.me/profile/?user_id='+getCookie('UNIQ'), {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		for (item of res) user.push(item)
@@ -47,7 +47,7 @@ window.onload = () => {
 		getScore(user[0].firstname, user[0].lastname)
 	})
 
-	fetch('https://fgapi.jacobsimonson.me/groups/?user_id='+getCookie('UID'), {method: 'GET'})
+	fetch('https://fgapi.jacobsimonson.me/groups/?user_id='+getCookie('UNIQ'), {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		for (item of res) groups.push(item)
@@ -74,6 +74,7 @@ const app = new Vue({
 		},
 		signOut: () => {
 			document.cookie = 'UID=;path=/;Max-Age=-99999999;'
+			document.cookie = 'UNIQ=;path=/;Max-Age=-99999999;'
 			window.open('https://friendgroup.jacobsimonson.me', '_self')
 		},
 		openGroup: (gid, gname) => {
