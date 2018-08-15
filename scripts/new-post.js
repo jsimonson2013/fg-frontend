@@ -7,6 +7,7 @@ var app = new Vue({
 	data: {
 		pid: getCookie('PID'),
 		gid: getCookie('GID'),
+		uniq: getCookie('UNIQ'),
 		uid: getCookie('UID')
 	},
 	computed: {
@@ -44,6 +45,7 @@ var app = new Vue({
 				'parent_id': app.pid || '',
 				'timestamp': app.timestamp,
 				'group_id': app.gid,
+				'uniq_id': app.uniq,
 				'user_id': app.uid
 			})
 
