@@ -42,7 +42,7 @@ h5:hover {
 	font-family: serif;
 	font-weight: bold;
 	color: #2b2b2b;
-	border: 1px outset lightgrey;
+	border: 3px solid #2b2b2b;
 	font-size: 28px;
 	border-radius: 5px;
 }
@@ -63,7 +63,6 @@ h5:hover {
 	grid-template-columns: 2fr 1 fr;
 	border-radius: 5px;
 	background-color: #f5f8ed;
-	border-bottom: 1px solid lightgray;
 	padding: 5px;
 	margin: 5px 1px 1px 1px;
 }
@@ -77,13 +76,13 @@ h5:hover {
 
 .feed-lower {
 	display: grid;
-	grid-template-columns: 8fr 1fr 1fr;
+	grid-template-columns: 18fr 8fr 1fr;
 	margin: 0px 10px 0px 10px;
 }
 
 .vote-button {
 	cursor: pointer;
-	text-align: center;
+	text-align: left;
 	margin-top: auto;
 	margin-bottom: auto
 }
@@ -122,13 +121,8 @@ h5:hover {
 	font-family: serif;
 	color: #2b2b2b;
 	cursor: pointer;
-	border-style: outset;
-	border-width: 1px;
-	border-top-color: white;
-	border-left-color: white;
-	border-bottom-color: lightgray;
-	border-right-color: lightgray;
-	padding: 2px
+	padding: 5px;
+	text-decoration: underline;
 }
 
 .post-text {
