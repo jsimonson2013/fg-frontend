@@ -12,7 +12,7 @@
 <div id="banner">
 	<h1 class="banner-header">{{ groupname }}</h1>
 	<div id="banner-links">
-	<a class="banner-link" href="https://jacobsimonson.me/fg-release/0.1.0.html">Release 0.1.0</a>
+	<a class="banner-link" href="https://jacobsimonson.me/fg-release/0.1.1.html">Release 0.1.1</a>
 	<a class="banner-link" href="../html/profile-template.html">My Profile</a>
 	<a class="banner-link" href="../html/submit-post.html">New Post</a>
 	</div>
@@ -28,7 +28,7 @@
 	<div class="feed-lower">
 	<p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.date) }}.</p>
 	<a class="comment-button" @click="viewComments(post.post_id)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
-	<h5 v-if="ready" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.post_id) }}</h5>
+	<h5 v-if="loaded.indexOf(post.post_id) > -1" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.post_id) }}</h5>
 	</div>
 </div>
 </div>

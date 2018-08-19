@@ -4,6 +4,8 @@ let comments = []
 let scores = []
 let votes = []
 
+let loaded = []
+
 let oldestDate = ''
 const ready = false
 
@@ -28,7 +30,7 @@ window.onload = () => {
 		oldestDate = posts[posts.length - 1].date
 		const copy = posts
 
-		populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
+		populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UID'))
 		.then(() => {
 			for(vote of votes) {
 				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
@@ -56,7 +58,7 @@ window.onscroll = () => {
 
 			app.ready = false
 
-			populateContents('feed', copy, scores, comments, votes, getCookie('UID'))
+			populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UID'))
 			.then(() => {
 				for(vote of votes) {
 					if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
@@ -73,7 +75,8 @@ const app = new Vue({
 	data: {
 		posts,
 		groupname: getCookie('GNAME'),
-		ready
+		ready,
+		loaded
 	},
 	methods: {
 		isLink: len => {

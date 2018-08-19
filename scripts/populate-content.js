@@ -1,6 +1,6 @@
 let promises = []
 
-const populateContents = (page, local, scores, comments, votes, user) => {
+const populateContents = (page, local, scores, comments, votes, loaded, user) => {
 	for (post of local) {
 		const first = post.author.split(' ')[0]
 		const last = post.author.split(' ')[1]
@@ -28,6 +28,7 @@ const populateContents = (page, local, scores, comments, votes, user) => {
 				num: json.length
 			}
 			comments.push(comms)
+			loaded.push(id)
 		})
 		promises.push(commentsPromise)
 
