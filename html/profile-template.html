@@ -19,7 +19,15 @@
 </div>
 <div id="wrapper">
 <div id="profile">
+	<div id="profile-header">
 		<h3 v-if="ready">Score: {{ score }}</h3>
+		<h3 v-if="ready">Emails: </h3>
+		<label v-if="ready" class="switch">
+    	<input id="notifications-slider" class="switch-input" type="checkbox" :checked="notifications" @change="toggleNotifications()"/>
+    	<span class="switch-label" data-on="On" data-off="Off"></span> 
+    	<span class="switch-handle"></span> 
+    </label>
+	</div>
 	<div id="groups-header">
 		<h3>Groups:</h3>
 		<button class="prof-button" v-if="score > 10" @click="newGroup">+ Group</button>

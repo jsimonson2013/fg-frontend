@@ -2,6 +2,8 @@ let user = []
 let groups = []
 let score = 0
 
+let notifications = true
+
 changePass = (newpass, user) => {
 	const payload = JSON.stringify({
 		'newpass': newpass,
@@ -33,6 +35,14 @@ getScore = (first, last) => {
 
 	userPromises.push(score)
 
+	const notifications = fetch('https://fgapi.jacobsimonson.me/notifications/?uid='+getCookie('UNIQ'), {method: 'GET'})
+	.then( res => {return res.json()})
+	.then( res => {
+		res[0].notifications_on == 1 ? app.notifications = true : app.notifications = false
+	})
+
+	userPromises.push(notifications)
+
 	Promise.all(userPromises).then(app.ready = true)
 }
 
@@ -61,6 +71,7 @@ const app = new Vue({
 		score,
 		default_id: -1,
 		groups,
+		notifications,
 		ready: false
 	},
 	methods: {
@@ -134,6 +145,9 @@ const app = new Vue({
 					})
 				}
 			}
+		},
+		toggleNotifications: () => {
+			fetch('https://fgapi.jacobsimonson.me/set-notifications/?uid='+getCookie('UNIQ')+'&set='+document.getElementById('notifications-slider').checked, {method: 'GET'})
 		}
 	}
 })
