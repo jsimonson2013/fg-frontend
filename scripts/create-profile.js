@@ -1,5 +1,5 @@
 const app = new Vue({
-	el: '#wrapper',
+	el: '#signup-wrapper',
 	data: {
 		first: "",
 		last: "",

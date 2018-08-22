@@ -31,6 +31,11 @@ h3 {
 	grid-template-rows: 1fr 1fr 1fr;
 }
 
+#signup-wrapper {
+	display: grid;
+	grid-template-rows: 1fr 4fr 1fr;
+}
+
 #form {
 	display: grid;
 	grid-template-columns: 2fr 3fr 2fr;
