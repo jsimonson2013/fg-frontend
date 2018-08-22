@@ -13,6 +13,9 @@ window.onload = () => {
 			window.open(res.url, '_self')
 		})
 	}
+	else {
+		document.querySelector('body').style.display = "block"
+	}
 }
 
 const app = new Vue({
