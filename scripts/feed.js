@@ -5,12 +5,22 @@ let scores = []
 let votes = []
 
 let loaded = []
+let members = ''
 
 let oldestDate = ''
 const ready = false
 
 window.onload = () => {
 	testLogin()
+
+	fetch('https://fgapi.jacobsimonson.me/members/?gid='+getCookie('GID'), {method: 'GET'})
+	.then(res => {return res.json()})
+	.then(json => {
+		for (let user of json) {
+			members = `${members}${user.firstname} ${user.lastname},\n`
+		}
+		app.members = members.replace(/,\s*$/, "")
+	})	
 
 	const currentDateTime = new Date()
 	currentDateTime.setFullYear(new Date().getFullYear() + 1)
@@ -76,6 +86,7 @@ const app = new Vue({
 		posts,
 		groupname: getCookie('GNAME'),
 		ready,
+		members,
 		loaded
 	},
 	methods: {

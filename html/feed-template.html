@@ -10,7 +10,7 @@
 <body>
 <div id="outside">
 <div id="banner">
-	<h1 class="banner-header">{{ groupname }}</h1>
+	<h1 class="banner-header">{{ groupname }}<div class="members-tooltip" v-if="ready"><pre>{{ members }}</pre></div></h1>
 	<div id="banner-links">
 	<a class="banner-link" href="https://jacobsimonson.me/fg-release/0.1.1.html">Release 0.1.1</a>
 	<a class="banner-link" href="../html/profile-template.html">My Profile</a>
