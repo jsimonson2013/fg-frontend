@@ -111,13 +111,9 @@ const app = new Vue({
 			return 0
 		},
 		formattedDate: date => {
-			const dateString = date.substring(0,10)
-			let timeString = date.substring(11, 19)
+			const utcDate = new Date(date)
 
-			if (timeString == '00:00:00') timeString = ''
-			else timeString = ` at ${timeString}`
-
-			return `${dateString}${timeString}`
+			return `${utcDate.toLocaleDateString()} at ${utcDate.toLocaleTimeString()}`
 		},
 		getScore: author => {
 			for (score of scores) {

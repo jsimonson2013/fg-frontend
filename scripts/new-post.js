@@ -10,14 +10,6 @@ var app = new Vue({
 		uniq: getCookie('UNIQ'),
 		uid: getCookie('UID')
 	},
-	computed: {
-		timestamp: () => {
-			const currentDateTime = new Date()
-			let localeTime = currentDateTime.toLocaleTimeString().split(' ')[0]
-			if (localeTime.split(':')[0].length != 2) localeTime = `0${localeTime}`
-			return `${currentDateTime.toISOString().slice(0,10)} ${localeTime}`
-		}
-	},
 	methods: {
 		comment: () => {
 			let etc = ''
@@ -43,7 +35,6 @@ var app = new Vue({
 				'content': document.getElementById('content').value,
 				'link': etc,
 				'parent_id': app.pid || '',
-				'timestamp': app.timestamp,
 				'group_id': app.gid,
 				'uniq_id': app.uniq,
 				'user_id': app.uid
