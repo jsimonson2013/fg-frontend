@@ -127,6 +127,16 @@ h5:hover {
 	display: inline-block;
 }
 
+.comment-link {
+	font-size: 38px;
+	font-family: serif;
+	color: #2b2b2b;
+	cursor: pointer;
+	padding: 5px;
+	text-decoration: underline;
+	display: inline-block;
+}
+
 .comment-stats {
 	font-size: 18px;
 	font-family: Helvetica;

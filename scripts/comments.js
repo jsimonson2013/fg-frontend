@@ -38,6 +38,17 @@ const app = new Vue({
 				if (score.author == author) return score.score
 			}
 			return 0
-		}
+		},
+		isLink: link => {
+			if (!link) return false
+
+			if (link.length < 1) return false
+
+			else return true
+		},
+		openPost: loc => {
+			if (loc.length < 1) return
+			window.open(loc)
+		} 
 	}
 })

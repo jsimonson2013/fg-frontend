@@ -13,7 +13,7 @@ var app = new Vue({
 	methods: {
 		comment: () => {
 			let etc = ''
-			let url = 'https://fgapi.jacobsimonson.me/comments/'
+			let url = 'https://fgapi.jacobsimonson.me/submission/'
 			let retaddr = 'https://friendgroup.jacobsimonson.me/html/feed-template.html'
 
 			if (document.getElementById('content').value.length < 1 || document.getElementById('content').value.length > 1000) {
@@ -24,10 +24,10 @@ var app = new Vue({
 			if (document.getElementById('link')) {
 				etc = document.getElementById('link').value
 				if (etc.substring(0,4) != 'http' && etc.length > 1) etc = 'http://' + etc
-				url = 'https://fgapi.jacobsimonson.me/submission/'
       }
 
 			if (document.getElementById('comment-button')) {
+				url = 'https://fgapi.jacobsimonson.me/comments/'
 				retaddr = 'https://friendgroup.jacobsimonson.me/html/comments-template.html'
 			}
 

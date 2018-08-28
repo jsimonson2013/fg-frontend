@@ -51,7 +51,7 @@ window.onload = () => {
 
 let doing = false
 window.onscroll = () => {
-	if(window.innerHeight + window.scrollY >= document.body.scrollTopMax*0.90 && !doing) {
+	if(window.innerHeight + window.scrollY >= document.body.scrollTop*0.90 && !doing) {
 		doing = true
 
 		fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID')+'&start_date='+oldestDate, {method: 'GET'})
