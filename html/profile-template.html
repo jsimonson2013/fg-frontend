@@ -39,7 +39,7 @@
 			<div v-else></div>
 			<a class="invite-button" v-if="groups.length > 1 && notDefault(group.group_id)" @click="leaveGroup(group.group_id)">Leave</a>
 			<div v-else></div>
-			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name)">Invite</a>
+			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name, group.g)">Invite</a>
 		</div>
 	</div>
 </div>

@@ -86,6 +86,9 @@ const app = new Vue({
 		signOut: () => {
 			document.cookie = 'UID=;path=/;Max-Age=-99999999;'
 			document.cookie = 'UNIQ=;path=/;Max-Age=-99999999;'
+			document.cookie = 'GROUP=;path=/;Max-Age=-99999999;'
+			document.cookie = 'GID=;path=/;Max-Age=-99999999;'
+			document.cookie = 'GNAME=;path=/;Max-Age=-99999999;'
 			window.open('https://friendgroup.jacobsimonson.me', '_self')
 		},
 		openGroup: (gid, gname) => {
@@ -93,12 +96,12 @@ const app = new Vue({
 			document.cookie = 'GNAME='+gname+';path=/;max-age=9000000;'
 			window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
 		},
-		inviteToGroup: (gid, gname) => {
+		inviteToGroup: (gid, gname, g) => {
 			const email = prompt(`Enter the email of the person you would like to invite to ${gname}.`, '')
 
 			if (email) {
 				if(confirm(`Are you sure you would like us to email this person an invite to ${gname}?`))
-					fetch('https://fgapi.jacobsimonson.me/invite/?email='+email+'&gid='+gid+'&uid='+getCookie('UID'), {method: 'GET'})
+					fetch('https://fgapi.jacobsimonson.me/invite/?email='+email+'&gid='+gid+'&uid='+getCookie('UID')+'&g='+g, {method: 'GET'})
 			}
 		},
 		leaveGroup: (gid) => {
