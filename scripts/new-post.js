@@ -44,7 +44,7 @@ var app = new Vue({
 
 			fetch(url, {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
 			.then(() => {
-				fetch('https://fgapi.jacobsimonson.me/increment-score/?uid='+app.uid, {method: 'GET'})
+				fetch('https://fgapi.jacobsimonson.me/increment-score/?uid='+app.uniq, {method: 'GET'})
 				.then(() => {window.open(retaddr, '_self')})
 			})
 		}

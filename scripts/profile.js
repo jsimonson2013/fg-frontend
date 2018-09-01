@@ -23,6 +23,7 @@ getScore = (first, last) => {
 	.then( res => {return res.json()})
 	.then( res => {
 		app.default_id = res.gid
+		console.log(res.group)
 	})
 
 	userPromises.push(group)
@@ -80,7 +81,7 @@ const app = new Vue({
 
 			if (fields) {
 				if(confirm("Are you sure you would like to change you password?"))
-				changePass(fields, user[0].user_id)
+				changePass(fields, getCookie('UNIQ'))
 			}
 		},
 		signOut: () => {
@@ -104,8 +105,8 @@ const app = new Vue({
 					fetch('https://fgapi.jacobsimonson.me/invite/?email='+email+'&gid='+gid+'&uid='+getCookie('UID')+'&g='+g, {method: 'GET'})
 			}
 		},
-		leaveGroup: (gid) => {
-			fetch('https://fgapi.jacobsimonson.me/leave-group/?uid='+getCookie('UID')+'&gid='+gid, {method: 'GET'})
+		leaveGroup: (gid, g) => {
+			fetch('https://fgapi.jacobsimonson.me/leave-group/?uid='+getCookie('UNIQ')+'&gid='+g, {method: 'GET'})
 			.then(res => {
 				if (res.status == 200) {
 					if (confirm('Are you sure you want to leave this group? The only way to rejoin is to be invited again.')){
@@ -118,14 +119,16 @@ const app = new Vue({
 						}
 					}
 					document.cookie = 'GID='+groups[0].group_id+';path=/;max-Age=9000000;'
+					document.cookie = 'GROUP='+groups[0].g+';path=/;max-Age=9000000;'
 					document.cookie = 'GNAME='+groups[0].name+';path=/;max-age=9000000;'
 				}
 			})
 		},
-		makeDefaultGroup: (gid, gname) => {
-			fetch('https://fgapi.jacobsimonson.me/change-group/?gid='+gid+'&gname='+gname+'&uid='+getCookie('UID'), {method: 'GET'})
+		makeDefaultGroup: (gid, gname, g) => {
+			fetch('https://fgapi.jacobsimonson.me/change-group/?gid='+gid+'&gname='+gname+'&group='+g+'&uid='+getCookie('UNIQ'), {method: 'GET'})
 			.then(res => {
 				document.cookie = 'GID='+gid+';path=/;max-Age=9000000;'
+				document.cookie = 'GROUP='+g+';path=/;max-age=9000000;'
 				document.cookie = 'GNAME='+gname+';path=/;max-age=9000000;'
 				window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
 			})
@@ -139,10 +142,11 @@ const app = new Vue({
 
 			if (name) {
 				if (confirm(`Are you sure you would you would like to create the ${name} group?`)) {
-					fetch('https://fgapi.jacobsimonson.me/create-group/?name='+name+'&uid='+getCookie('UID'), {method: 'GET'})
+					fetch('https://fgapi.jacobsimonson.me/create-group/?name='+name+'&uid='+getCookie('UID')+'&user='+getCookie('UNIQ'), {method: 'GET'})
 					.then(res => {return res.json()})
 					.then(json => {
 						document.cookie = 'GID='+json.gid+';path=/;max-Age=9000000;'
+						document.cookie = 'GROUP='+json.group+';path=/;max-Age=9000000;'
 						document.cookie = 'GNAME='+json.gname+';path=/;max-age=9000000;'
 						window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
 					})
