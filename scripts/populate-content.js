@@ -19,8 +19,9 @@ const populateContents = (page, local, scores, comments, votes, loaded, user) =>
 		if (page != 'feed') continue
 
 		const id = post.post_id
+		const uniq = post.u
 
-		const commentsPromise = fetch('https://fgapi.jacobsimonson.me/num-comments/?parent_id='+id, {method: 'GET'})
+		const commentsPromise = fetch('https://fgapi.jacobsimonson.me/num-comments/?parent_id='+uniq, {method: 'GET'})
 		.then(res => {return res.json()})
 		.then(json => {
 			const comms = {
@@ -32,11 +33,12 @@ const populateContents = (page, local, scores, comments, votes, loaded, user) =>
 		})
 		promises.push(commentsPromise)
 
-		const votesPromise = fetch('https://fgapi.jacobsimonson.me/votes-by-user/?post_id='+id+'&user_id='+user, {method: 'GET'})
+		const votesPromise = fetch('https://fgapi.jacobsimonson.me/votes-by-user/?post_id='+uniq+'&user_id='+user, {method: 'GET'})
 		.then(res => {return res.json()})
 		.then(json => {
 			const vote = {
 				pid: id,
+				post: uniq,
 				num: json.length
 			}
 			votes.push(vote)

@@ -40,7 +40,7 @@ window.onload = () => {
 		oldestDate = posts[posts.length - 1].date
 		const copy = posts
 
-		populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UID'))
+		populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UNIQ'))
 		.then(() => {
 			for(vote of votes) {
 				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
@@ -68,7 +68,7 @@ window.onscroll = () => {
 
 			app.ready = false
 
-			populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UID'))
+			populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UNIQ'))
 			.then(() => {
 				for(vote of votes) {
 					if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
@@ -124,7 +124,7 @@ const app = new Vue({
 		voteOnPost: (id, el) => {
 			const payload = JSON.stringify({
 				'post_id': id,
-				'user_id': getCookie('UID')
+				'user_id': getCookie('UNIQ')
 			})
 
 			fetch('https://fgapi.jacobsimonson.me/vote/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
