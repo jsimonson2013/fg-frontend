@@ -22,13 +22,13 @@
 <p v-if="posts.length < 1" style="font-family: Helvetica; font-size: 18px">There are no posts in this group... Be the first to post by clicking that button at the top.</p>
 <div v-for="post in posts" v-if="post.content" class="feed-post">
 	<div class="feed-upper">
-	<a :id="post.post_id" class="vote-button" @click="voteOnPost(post.u, $event.target.parentElement)"><img src="../imgs/voteicon.png" style="width: 35px; height: 35px"></a>
+	<a :id="post.u" class="vote-button" @click="voteOnPost(post.u, $event.target.parentElement)"><img src="../imgs/voteicon.png" style="width: 35px; height: 35px"></a>
 	<h3 v-bind:class="{ 'post-link': isLink(post.link.length), 'post-text': !isLink(post.link.length) }" @click="openPost(post.link)">{{ body(post.content) }}</h3>
 	</div>
 	<div class="feed-lower">
 	<p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.date) }}.</p>
 	<a class="comment-button" @click="viewComments(post.u)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
-	<h5 v-if="loaded.indexOf(post.post_id) > -1" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.post_id) }}</h5>
+	<h5 v-if="loaded.indexOf(post.u) > -1" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.u) }}</h5>
 	</div>
 </div>
 </div>

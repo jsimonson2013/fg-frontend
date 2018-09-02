@@ -34,12 +34,12 @@
 	</div>
 	<div v-if="ready">
 		<div v-for="group in groups" class="group-card" style="padding-bottom: 10px; font-family: serif; font-size: 28px;">
-			<a :id="'group-'+group.group_id" class="group-link" @click="openGroup(group.group_id, group.name)">{{ group.name }}</a>
-			<a class="invite-button" v-if="notDefault(group.group_id)" @click="makeDefaultGroup(group.group_id, group.name, group.g)">Default</a>
+			<a :id="'group-'+group.g" class="group-link" @click="openGroup(group.name, group.g)">{{ group.name }}</a>
+			<a class="invite-button" v-if="notDefault(group.g)" @click="makeDefaultGroup(group.name, group.g)">Default</a>
 			<div v-else></div>
-			<a class="invite-button" v-if="groups.length > 1 && notDefault(group.group_id)" @click="leaveGroup(group.group_id, group.g)">Leave</a>
+			<a class="invite-button" v-if="groups.length > 1 && notDefault(group.g)" @click="leaveGroup(group.g)">Leave</a>
 			<div v-else></div>
-			<a class="invite-button" @click="inviteToGroup(group.group_id, group.name, group.g)">Invite</a>
+			<a class="invite-button" @click="inviteToGroup(group.name, group.g)">Invite</a>
 		</div>
 	</div>
 </div>

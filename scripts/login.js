@@ -7,10 +7,8 @@ window.onload = () => {
 		fetch('https://fgapi.jacobsimonson.me/bypass/?user=' + getCookie('UNIQ'), {method: 'GET'})
 		.then(res => {return res.json()})
 		.then(res => {
-			document.cookie = 'GID='+res.gid+';path=/;max-age=31536000'
 			document.cookie = 'GROUP='+res.group+';path=/;max-age=31536000'
 			document.cookie = 'GNAME='+res.gname+';path=/;max-age=315360000'
-			document.cookie = 'UID='+res.uid+';path=/;max-age=315360000'
 			window.open(res.url, '_self')
 		})
 	}
@@ -36,9 +34,7 @@ const app = new Vue({
 			})
 			.then(res => {
 				document.cookie = 'GROUP='+res.group+';path=/;max-age=31536000'
-				document.cookie = 'UID='+res.uid+';path=/;max-age=31536000'
 				document.cookie = 'UNIQ='+res.uniq+';path=/;max-age=31536000'
-				document.cookie = 'GID='+res.gid+';path=/;max-age=31536000'
 				document.cookie = 'GNAME='+res.gname+';path=/;max-age=315360000'
 				window.open(res.url, '_self')
 			})

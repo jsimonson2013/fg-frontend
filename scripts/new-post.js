@@ -37,9 +37,7 @@ var app = new Vue({
 				'link': etc,
 				'parent_id': app.pid || '',
 				'group': app.group,
-				'group_id': app.gid,
-				'uniq_id': app.uniq,
-				'user_id': app.uid
+				'uniq_id': app.uniq
 			})
 
 			fetch(url, {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})

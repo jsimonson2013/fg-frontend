@@ -13,7 +13,7 @@ const ready = false
 window.onload = () => {
 	testLogin()
 
-	fetch('https://fgapi.jacobsimonson.me/members/?gid='+getCookie('GID'), {method: 'GET'})
+	fetch('https://fgapi.jacobsimonson.me/members/?gid='+getCookie('GROUP'), {method: 'GET'})
 	.then(res => {return res.json()})
 	.then(json => {
 		for (let user of json) {
@@ -30,7 +30,7 @@ window.onload = () => {
 	if (localeTime.split(':')[0].length != 2) localeTime = `0${localeTime}`
 	oldestDate = `${currentDateTime.toISOString().slice(0,10)} ${localeTime}`
 
-	fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID')+'&start_date='+oldestDate, {method: 'GET'})
+	fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GROUP')+'&start_date='+oldestDate, {method: 'GET'})
 	.then( res => {return res.json()})
 	.then( res => {
 		for(post of res) {
@@ -54,7 +54,7 @@ window.onscroll = () => {
 	if(window.innerHeight + window.scrollY >= document.body.scrollTop*0.90 && !doing) {
 		doing = true
 
-		fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GID')+'&start_date='+oldestDate, {method: 'GET'})
+		fetch('https://fgapi.jacobsimonson.me/feed/?group_id='+getCookie('GROUP')+'&start_date='+oldestDate, {method: 'GET'})
 		.then( res => {return res.json()})
 		.then( res => {
 			if (res.length < 1) return

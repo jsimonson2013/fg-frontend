@@ -33,6 +33,7 @@ const app = new Vue({
 				document.cookie = 'UNIQ='+res.uniq+';path=/;max-age=31536000'
 				document.cookie = 'GID='+res.gid+';path=/;max-age=31536000'
 				document.cookie = 'GNAME='+res.gname+';path=/;max-age=315360000'
+				document.cookie = 'GROUP='+res.group+';path=/;max-age=315360000'
 				window.open(res.url, '_self')
 			})
 		}
