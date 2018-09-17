@@ -1,6 +1,6 @@
 let promises = []
 
-const populateContents = (page, local, scores, comments, votes, loaded, user) => {
+const populateContents = (page, local, userPosts, scores, comments, votes, loaded, user) => {
 	for (post of local) {
 		const first = post.author.split(' ')[0]
 		const last = post.author.split(' ')[1]
@@ -43,6 +43,13 @@ const populateContents = (page, local, scores, comments, votes, loaded, user) =>
 		})
 		promises.push(votesPromise)
 	}
+
+	const postsPromise = fetch('https://fgapi.jacobsimonson.me/posts-by-user/?uid='+user, {method: 'GET'})
+	.then(res => {return res.json()})
+	.then(json => {
+		userPosts.push(json)
+	})
+	promises.push(postsPromise)
 
 	return Promise.all(promises).then(() => {app.ready = true})
 }

@@ -1,4 +1,5 @@
 let posts = []
+let userPosts = []
 let comments = []
 
 let scores = []
@@ -40,8 +41,12 @@ window.onload = () => {
 		oldestDate = posts[posts.length - 1].date
 		const copy = posts
 
-		populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UNIQ'))
+		populateContents('feed', copy, userPosts, scores, comments, votes, loaded, getCookie('UNIQ'))
 		.then(() => {
+			for(let post of userPosts[0]) {
+				if(document.getElementById(`delete${post.p}`)) document.getElementById(`delete${post.p}`).style.visibility = 'visible'
+			}
+
 			for(vote of votes) {
 				if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
 			}
@@ -68,8 +73,12 @@ window.onscroll = () => {
 
 			app.ready = false
 
-			populateContents('feed', copy, scores, comments, votes, loaded, getCookie('UNIQ'))
+			populateContents('feed', copy, userPosts, scores, comments, votes, loaded, getCookie('UNIQ'))
 			.then(() => {
+				for(let post of userPosts[0]) {
+					if(document.getElementById(`delete${post.p}`)) document.getElementById(`delete${post.p}`).style.visibility = 'visible'
+				}
+
 				for(vote of votes) {
 					if (vote.num) document.getElementById(`${vote.pid}`).innerHTML = `<h5>${vote.num}</h5>`
 				}
@@ -90,6 +99,18 @@ const app = new Vue({
 		loaded
 	},
 	methods: {
+		deletePost: (id, el) => {
+			if (confirm("Are you sure you would like to delete this post?")) {
+				const payload = JSON.stringify({ 'post_id': id,
+					'user_id': getCookie('UNIQ')
+				})
+
+				fetch('https://fgapi.jacobsimonson.me/delete-post/', {headers: {'Content-Type': 'application/json'}, method: 'POST', body: payload})
+				.then(res => {
+					if (res.status == 200) window.open('https://friendgroup.jacobsimonson.me/html/feed-template.html', '_self')
+				})
+			}
+		},
 		isLink: len => {
 			if (len > 1) return true
 			else return false

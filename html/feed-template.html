@@ -12,7 +12,7 @@
 <div id="banner">
 	<h1 class="banner-header">{{ groupname }}<div class="members-tooltip" v-if="ready"><pre>{{ members }}</pre></div></h1>
 	<div id="banner-links">
-	<a class="banner-link" href="https://jacobsimonson.me/fg-release/0.1.2.html">Release 0.1.2</a>
+	<a class="banner-link" href="https://jacobsimonson.me/fg-release/0.1.3.html">Release 0.1.3</a>
 	<a class="banner-link" href="../html/profile-template.html">My Profile</a>
 	<a class="banner-link" href="../html/submit-post.html">New Post</a>
 	</div>
@@ -27,6 +27,7 @@
 	</div>
 	<div class="feed-lower">
 	<p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.date) }}.</p>
+	<a :id="'delete' + post.u" class="delete-button" @click="deletePost(post.u, $event.target.parentElement)">x</a>
 	<a class="comment-button" @click="viewComments(post.u)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
 	<h5 v-if="loaded.indexOf(post.u) > -1" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.u) }}</h5>
 	</div>
