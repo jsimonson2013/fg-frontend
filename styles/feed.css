@@ -84,9 +84,8 @@ h5:hover {
 	cursor: pointer;
 	visibility: hidden;
 	text-align: right;
-	padding-right: 10px;
-	margin-top: auto;
-	margin-bottom: auto
+	padding-right: 35px;
+	margin-top: 0;
 }
 
 .vote-button {

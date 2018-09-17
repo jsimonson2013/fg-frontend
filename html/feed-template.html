@@ -27,7 +27,7 @@
 	</div>
 	<div class="feed-lower">
 	<p class="post-stats">Posted by <a class="author">{{ post.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(post.author) }}</span></a> on {{ formattedDate(post.date) }}.</p>
-	<a :id="'delete' + post.u" class="delete-button" @click="deletePost(post.u, $event.target.parentElement)">x</a>
+	<a :id="'delete' + post.u" class="delete-button" @click="deletePost(post.u, $event.target.parentElement)"><img src="../imgs/trash.png" style="width: 60px; height: 60px"></a>
 	<a class="comment-button" @click="viewComments(post.u)" href="../html/comments-template.html"><img src="../imgs/commenticon.png" style="height: 60px; width: 75px"></a>
 	<h5 v-if="loaded.indexOf(post.u) > -1" style="text-align: center; font-family: Helvetica; font-size: 16px">{{ numComments(post.u) }}</h5>
 	</div>
