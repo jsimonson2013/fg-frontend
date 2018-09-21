@@ -32,6 +32,12 @@ var app = new Vue({
 				retaddr = 'https://friendgroup.jacobsimonson.me/html/comments-template.html'
 			}
 
+			if (document.getElementById('notify')) {
+				if (document.getElementById('notify-check').checked) {
+					fetch('https://fgapi.jacobsimonson.me/notify-poster/?pid='+app.pid, {method: 'GET'})
+				}
+			}
+
 			const payload = JSON.stringify({
 				'content': document.getElementById('content').value,
 				'link': etc,

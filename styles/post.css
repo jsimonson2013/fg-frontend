@@ -36,3 +36,35 @@
 .sub-button:hover {
 	cursor: pointer;
 }
+
+#notify {
+	display: grid;
+	grid-template-columns: 1fr 10fr;
+	width: 75%;
+	padding: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+h5 {
+	margin-top: auto;
+	margin-bottom: auto;
+	font-size: 24px;
+	font-family: calibri;
+	text-decoration: none;
+}
+
+#notify-check {
+    -webkit-appearance: none;
+		-moz-appearance: none;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #2b2b2b;
+}
+
+#notify-check:checked {
+    background: #bace7e;
+}
