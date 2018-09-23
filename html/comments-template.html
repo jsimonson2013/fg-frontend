@@ -12,12 +12,14 @@
 	<h1 class="banner-header">{{ groupname }}</h1>
 	<div id="banner-links">
 		<a class="banner-link" href="../html/feed-template.html">Home</a>
+		<a class="banner-link" href="../html/profile-template.html">My Profile</a>
 		<a class="banner-link" href="../html/submit-comment.html">New Comment</a>
 	</div>
 </div>
 <div  id="wrapper">
 <div id="comment-list">
-<p v-if="comments.length < 1" style="font-family: Helvetica; font-size: 18px">There are no comments for this post... Be the first to comment by clicking that button at the top.</p>
+<p v-if="comments.length < 1 && ready" style="font-family: Helvetica; font-size: 18px">There are no comments for this post... Be the first to comment by clicking that button at the top.</p>
+<p v-if="comments.length < 1 && !ready" style="font-family: Helvetica; font-size: 18px">Loading...</p>
 <div v-for="comment in comments" v-if="comment.content" class="feed-post">
 	<h3 v-bind:class="{ 'comment-link': isLink(comment.link), 'comment-content': !isLink(comment.link) }" @click="openPost(comment.link)">{{ body(comment.content) }}</h3>
 	<p class="comment-stats">Commented by <a class="author">{{ comment.author }}<span class="tooltip" v-if="ready">Score: {{ getScore(comment.author) }}</a> on {{ formattedDate(comment.date) }}.</p>
