@@ -15,7 +15,13 @@ window.onload = () => {
 	testLogin()
 
 	fetch('https://fgapi.jacobsimonson.me/members/?gid='+getCookie('GROUP'), {method: 'GET'})
-	.then(res => {return res.json()})
+	.then( res => {
+		setTimeout(() => {
+			if (document.getElementById('empty-label')) document.getElementById('empty-label').innerHTML = "There are no posts here..."
+		}, 2500)
+
+		return res.json()
+	})
 	.then(json => {
 		for (let user of json) {
 			members = `${members}${user.firstname} ${user.lastname},\n`

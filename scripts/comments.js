@@ -5,13 +5,19 @@ const ready = false
 
 window.onload = () => {
 	testLogin()
-
 	fetch('https://fgapi.jacobsimonson.me/comments/?parent_id='+getCookie('PID'), {method: 'GET'})
-	.then( res => {return res.json()})
+	.then( res => {
+		setTimeout(() => {
+			document.getElementById('empty-label').innerHTML = "There are no posts here..."
+		}, 2500)
+
+		return res.json()
+	})
 	.then( res => {
 		for(comment of res) {
 			comments.push(comment)
 		}
+
 		const copy = comments
 		populateContents('comments', copy, null, scores, null, null, null, getCookie('UNIQ'))
 	})

@@ -21,7 +21,11 @@ const populateContents = (page, local, userPosts, scores, comments, votes, loade
 		const uniq = post.u
 
 		const commentsPromise = fetch('https://fgapi.jacobsimonson.me/num-comments/?parent_id='+uniq, {method: 'GET'})
-		.then(res => {return res.json()})
+		.then(res => {
+			if (res.status == 304) console.log('ok')
+
+			return res.json()
+		})
 		.then(json => {
 			const comms = {
 				pid: uniq,
@@ -51,6 +55,9 @@ const populateContents = (page, local, userPosts, scores, comments, votes, loade
 	})
 	promises.push(postsPromise)
 
-	return Promise.all(promises).then(() => {app.ready = true})
+	return Promise.all(promises).then(() => {
+		app.ready = true
+		if (document.getElementById('empty-label')) document.getElementById('empty-label').innerHTML = "There are no posts here..."
+	})
 }
 

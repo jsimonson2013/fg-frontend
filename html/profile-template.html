@@ -30,7 +30,7 @@
 	</div>
 	<div id="groups-header">
 		<h3>Groups:</h3>
-		<button class="prof-button" v-if="score > 10" @click="newGroup">+ Group</button>
+		<button class="prof-button" v-if="score > 0" @click="newGroup">+ Group</button>
 	</div>
 	<div v-if="ready">
 		<div v-for="group in groups" class="group-card" style="padding-bottom: 10px; font-family: serif; font-size: 28px;">
